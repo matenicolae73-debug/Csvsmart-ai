@@ -3,7 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVSmart AI - Creează-ți CV-ul</title>
+
+  <title>CVSmart AI – Creează CV Profesional Online</title>
+
+  <meta name="description"
+        content="Creează rapid un CV profesional online cu CVSmart AI. Completează datele, previzualizează CV-ul și continuă la plata securizată.">
+
+  <meta name="keywords"
+        content="CV online, creare CV, CV profesional, generator CV, CV gratuit, CV România, CVSmart AI">
+
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title"
+        content="CVSmart AI – Creează CV Profesional Online">
+
+  <meta property="og:description"
+        content="Creează un CV profesional online în câteva minute cu CVSmart AI.">
+
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#111827">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CVSmart AI",
+    "description": "Generator online de CV-uri profesionale.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web"
+  }
+  </script>
 
   <style>
     * {
@@ -20,18 +50,19 @@
     header {
       background: #111827;
       color: white;
-      padding: 22px 16px;
+      padding: 28px 16px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 32px;
     }
 
     header p {
-      margin: 8px 0 0;
+      margin: 10px 0 0;
       color: #d1d5db;
+      font-size: 17px;
     }
 
     .container {
@@ -59,7 +90,9 @@
       margin-bottom: 6px;
     }
 
-    input, textarea, select {
+    input,
+    textarea,
+    select {
       width: 100%;
       padding: 13px;
       border: 1px solid #d1d5db;
@@ -129,6 +162,11 @@
       font-size: 14px;
       text-align: center;
     }
+
+    .seo-text {
+      line-height: 1.6;
+      color: #4b5563;
+    }
   </style>
 </head>
 
@@ -136,45 +174,56 @@
 
 <header>
   <h1>CVSmart AI</h1>
-  <p>Creează un CV profesional în câteva minute</p>
+  <p>Creează un CV profesional online în câteva minute</p>
 </header>
 
 <div class="container">
 
   <div class="card">
-    <h2>🚀 Creează-ți CV-ul</h2>
+    <h2>🚀 Creează-ți CV-ul profesional</h2>
 
-    <label>Nume și prenume</label>
+    <p class="seo-text">
+      Cu CVSmart AI poți crea rapid un CV profesional online.
+      Completează informațiile despre experiența ta, studiile și competențele
+      tale, apoi verifică previzualizarea CV-ului.
+    </p>
+
+    <label for="name">Nume și prenume</label>
     <input id="name" placeholder="Ex: Ion Popescu">
 
-    <label>Email</label>
+    <label for="email">Email</label>
     <input id="email" type="email" placeholder="Ex: ion@email.com">
 
-    <label>Telefon</label>
+    <label for="phone">Telefon</label>
     <input id="phone" placeholder="Ex: 07xx xxx xxx">
 
-    <label>Oraș / Țară</label>
+    <label for="location">Oraș / Țară</label>
     <input id="location" placeholder="Ex: București, România">
 
-    <label>Jobul dorit</label>
+    <label for="job">Jobul dorit</label>
     <input id="job" placeholder="Ex: Șofer, Bucătar, Electrician">
 
-    <label>Experiență profesională</label>
-    <textarea id="experience"
+    <label for="experience">Experiență profesională</label>
+    <textarea
+      id="experience"
       placeholder="Scrie unde ai lucrat și ce responsabilități ai avut..."></textarea>
 
-    <label>Studii</label>
-    <textarea id="education"
+    <label for="education">Studii</label>
+    <textarea
+      id="education"
       placeholder="Ex: Liceul X, profil tehnic, 2018"></textarea>
 
-    <label>Competențe</label>
-    <textarea id="skills"
+    <label for="skills">Competențe</label>
+    <textarea
+      id="skills"
       placeholder="Ex: lucru în echipă, permis categoria B, Excel..."></textarea>
 
-    <label>Limbi străine</label>
-    <input id="languages" placeholder="Ex: Engleză - mediu, Italiană - avansat">
+    <label for="languages">Limbi străine</label>
+    <input
+      id="languages"
+      placeholder="Ex: Engleză - mediu, Italiană - avansat">
 
-    <label>Limba CV-ului</label>
+    <label for="language">Limba CV-ului</label>
     <select id="language">
       <option value="Română">Română</option>
       <option value="Italiană">Italiană</option>
@@ -218,7 +267,9 @@
     <div class="payment">
       <h2>💳 CV-ul tău este gata</h2>
 
-      <p>Descarcă CV-ul profesional și primește scrisoarea de intenție.</p>
+      <p>
+        Descarcă CV-ul profesional și primește scrisoarea de intenție.
+      </p>
 
       <div class="price">4,99 €</div>
 
@@ -227,7 +278,7 @@
       </button>
 
       <p class="small">
-        Plata securizată va fi conectată în următorul pas.
+        Plata este procesată securizat prin Stripe.
       </p>
     </div>
 
@@ -257,7 +308,9 @@ function generateCV() {
   document.getElementById("cvName").textContent = name;
 
   document.getElementById("cvContact").textContent =
-    email + " • " + phone + " • " + location;
+    [email, phone, location]
+      .filter(Boolean)
+      .join(" • ");
 
   document.getElementById("cvJob").textContent = job;
 
@@ -282,12 +335,13 @@ function generateCV() {
 }
 
 function payment() {
-  window.location.href = "https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00";
+
+  window.location.href =
+    "https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00";
+
 }
-  
-  
 
 </script>
 
 </body>
-                       </html>
+</html>
