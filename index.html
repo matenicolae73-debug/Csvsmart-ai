@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVSmart AI - Creează-ți CV-ul</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #17202a;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #d1d5db;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 6px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    #result {
+      display: none;
+    }
+
+    .cv {
+      border: 1px solid #ddd;
+      padding: 25px;
+      background: white;
+    }
+
+    .cv h1 {
+      margin-bottom: 5px;
+    }
+
+    .cv h3 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+
+    .payment {
+      background: #eff6ff;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .small {
+      color: #6b7280;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CVSmart AI</h1>
+  <p>Creează un CV profesional în câteva minute</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>🚀 Creează-ți CV-ul</h2>
+
+    <label>Nume și prenume</label>
+    <input id="name" placeholder="Ex: Ion Popescu">
+
+    <label>Email</label>
+    <input id="email" type="email" placeholder="Ex: ion@email.com">
+
+    <label>Telefon</label>
+    <input id="phone" placeholder="Ex: 07xx xxx xxx">
+
+    <label>Oraș / Țară</label>
+    <input id="location" placeholder="Ex: București, România">
+
+    <label>Jobul dorit</label>
+    <input id="job" placeholder="Ex: Șofer, Bucătar, Electrician">
+
+    <label>Experiență profesională</label>
+    <textarea id="experience"
+      placeholder="Scrie unde ai lucrat și ce responsabilități ai avut..."></textarea>
+
+    <label>Studii</label>
+    <textarea id="education"
+      placeholder="Ex: Liceul X, profil tehnic, 2018"></textarea>
+
+    <label>Competențe</label>
+    <textarea id="skills"
+      placeholder="Ex: lucru în echipă, permis categoria B, Excel..."></textarea>
+
+    <label>Limbi străine</label>
+    <input id="languages" placeholder="Ex: Engleză - mediu, Italiană - avansat">
+
+    <label>Limba CV-ului</label>
+    <select id="language">
+      <option value="Română">Română</option>
+      <option value="Italiană">Italiană</option>
+      <option value="Engleză">Engleză</option>
+    </select>
+
+    <button onclick="generateCV()">
+      ✨ Generează CV-ul
+    </button>
+
+    <p class="small">
+      Vei putea verifica informațiile înainte de plată.
+    </p>
+  </div>
+
+  <div id="result" class="card">
+
+    <h2>📄 Previzualizare CV</h2>
+
+    <div class="cv">
+
+      <h1 id="cvName"></h1>
+      <p id="cvContact"></p>
+
+      <h2 id="cvJob"></h2>
+
+      <h3>Experiență profesională</h3>
+      <p id="cvExperience"></p>
+
+      <h3>Studii</h3>
+      <p id="cvEducation"></p>
+
+      <h3>Competențe</h3>
+      <p id="cvSkills"></p>
+
+      <h3>Limbi străine</h3>
+      <p id="cvLanguages"></p>
+
+    </div>
+
+    <div class="payment">
+      <h2>💳 CV-ul tău este gata</h2>
+
+      <p>Descarcă CV-ul profesional și primește scrisoarea de intenție.</p>
+
+      <div class="price">4,99 €</div>
+
+      <button onclick="payment()">
+        🔒 Continuă la plată
+      </button>
+
+      <p class="small">
+        Plata securizată va fi conectată în următorul pas.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function getValue(id) {
+  return document.getElementById(id).value.trim();
+}
+
+function generateCV() {
+
+  const name = getValue("name");
+  const email = getValue("email");
+  const phone = getValue("phone");
+  const location = getValue("location");
+  const job = getValue("job");
+
+  if (!name || !job) {
+    alert("Te rugăm să completezi numele și jobul dorit.");
+    return;
+  }
+
+  document.getElementById("cvName").textContent = name;
+
+  document.getElementById("cvContact").textContent =
+    email + " • " + phone + " • " + location;
+
+  document.getElementById("cvJob").textContent = job;
+
+  document.getElementById("cvExperience").textContent =
+    getValue("experience") || "Informații despre experiență.";
+
+  document.getElementById("cvEducation").textContent =
+    getValue("education") || "Informații despre studii.";
+
+  document.getElementById("cvSkills").textContent =
+    getValue("skills") || "Competențe profesionale.";
+
+  document.getElementById("cvLanguages").textContent =
+    getValue("languages") || "Limbi străine.";
+
+  document.getElementById("result").style.display = "block";
+
+  window.scrollTo({
+    top: document.getElementById("result").offsetTop,
+    behavior: "smooth"
+  });
+}
+
+function payment() {
+  alert(
+    "Pasul următor: conectăm plata securizată de 4,99 € și apoi generarea AI."
+  );
+}
+
+</script>
+
+</body>
+                       </html>
