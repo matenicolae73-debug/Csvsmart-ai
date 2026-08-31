@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0BR73BQW5"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
@@ -11,13 +10,10 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js',new Date());
 gtag('config','G-Y0BR73BQW5');
 </script>
-
 <title>CVSmart AI – European CV & Job Finder</title>
-
 <meta name="description" content="Create a professional European CV, cover letter and find suitable jobs with CVSmart AI.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#172554">
-
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#172033}
@@ -60,38 +56,24 @@ button{width:100%;padding:16px;border:0;border-radius:12px;color:white;font-size
 .info-box{background:#f5f3ff;border:1px solid #ddd6fe;padding:18px;border-radius:14px;margin-top:18px;line-height:1.6}
 .notice{background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:10px;margin-top:12px;color:#9a3412;font-size:14px;line-height:1.5}
 @media(max-width:650px){
-.header-inner{flex-direction:column;align-items:stretch}
-.logo{text-align:center}
-#language{width:100%}
-.phone-row{grid-template-columns:1fr}
-.card{padding:20px}
-.cv{padding:20px}
+.header-inner{flex-direction:column;align-items:stretch}.logo{text-align:center}#language{width:100%}
+.phone-row{grid-template-columns:1fr}.card{padding:20px}.cv{padding:20px}
 }
 @media print{
-body{background:white}
-header,#formCard,.payment,.letter-btn,.pdf-btn,.jobs-btn,.small{display:none!important}
-.container{margin:0;max-width:none}
-.card{box-shadow:none;padding:0}
-.result{display:block!important}
-.cv{border:none}
+body{background:white}header,#formCard,.payment,.letter-btn,.pdf-btn,.jobs-btn,.small{display:none!important}
+.container{margin:0;max-width:none}.card{box-shadow:none;padding:0}.result{display:block!important}.cv{border:none}
 }
 </style>
 </head>
-
 <body>
-
 <header>
 <div class="header-inner">
 <div class="logo">CVSmart AI</div>
 <select id="language" onchange="changeLanguage()">
-<option value="ro">🇷🇴 Română</option>
-<option value="it">🇮🇹 Italiano</option>
-<option value="en">🇬🇧 English</option>
-<option value="es">🇪🇸 Español</option>
-<option value="de">🇩🇪 Deutsch</option>
+<option value="ro">🇷🇴 Română</option><option value="it">🇮🇹 Italiano</option>
+<option value="en">🇬🇧 English</option><option value="es">🇪🇸 Español</option><option value="de">🇩🇪 Deutsch</option>
 </select>
 </div>
-
 <div class="hero">
 <div class="badge" id="badge">🤖 Generator CV cu AI</div>
 <h1 id="heroTitle">Creează un CV profesional în câteva minute</h1>
@@ -100,218 +82,81 @@ header,#formCard,.payment,.letter-btn,.pdf-btn,.jobs-btn,.small{display:none!imp
 </header>
 
 <div class="container">
-
 <div class="card" id="formCard">
 <h2 id="formTitle">🚀 Creează-ți CV-ul</h2>
 <p class="small" id="formDescription">Completează informațiile și pregătește-te pentru jobul dorit.</p>
-
-<label id="nameLabel">Nume și prenume</label>
-<input id="name" placeholder="Ex: Ion Popescu">
-
-<label id="emailLabel">Email</label>
-<input id="email" type="email" placeholder="Ex: ion@email.com">
-
+<label id="nameLabel">Nume și prenume</label><input id="name" placeholder="Ex: Ion Popescu">
+<label id="emailLabel">Email</label><input id="email" type="email" placeholder="Ex: ion@email.com">
 <label id="phoneLabel">Telefon</label>
 <div class="phone-row">
 <select id="country">
-<option value="+40">🇷🇴 România (+40)</option>
-<option value="+39">🇮🇹 Italia (+39)</option>
-<option value="+34">🇪🇸 Spania (+34)</option>
-<option value="+49">🇩🇪 Germania (+49)</option>
-<option value="+44">🇬🇧 Regatul Unit (+44)</option>
-<option value="+33">🇫🇷 Franța (+33)</option>
-<option value="+43">🇦🇹 Austria (+43)</option>
-<option value="+32">🇧🇪 Belgia (+32)</option>
-<option value="+31">🇳🇱 Țările de Jos (+31)</option>
-<option value="+351">🇵🇹 Portugalia (+351)</option>
-<option value="+41">🇨🇭 Elveția (+41)</option>
-<option value="+1">🇺🇸 SUA / Canada (+1)</option>
+<option value="+40">🇷🇴 România (+40)</option><option value="+39">🇮🇹 Italia (+39)</option><option value="+34">🇪🇸 Spania (+34)</option>
+<option value="+49">🇩🇪 Germania (+49)</option><option value="+44">🇬🇧 Regatul Unit (+44)</option><option value="+33">🇫🇷 Franța (+33)</option>
+<option value="+43">🇦🇹 Austria (+43)</option><option value="+32">🇧🇪 Belgia (+32)</option><option value="+31">🇳🇱 Țările de Jos (+31)</option>
+<option value="+351">🇵🇹 Portugalia (+351)</option><option value="+41">🇨🇭 Elveția (+41)</option><option value="+1">🇺🇸 SUA / Canada (+1)</option>
 </select>
 <input id="phone" type="tel" placeholder="712 345 678">
 </div>
-
-<label id="locationLabel">Oraș / Țară</label>
-<input id="location" placeholder="Ex: Roma, Italia">
-
-<label id="jobLabel">Jobul dorit</label>
-<input id="job" placeholder="Ex: Electrician">
-
-<label id="experienceLabel">Experiență profesională</label>
-<textarea id="experience" placeholder="Scrie unde ai lucrat și ce responsabilități ai avut..."></textarea>
-
-<label id="educationLabel">Studii</label>
-<textarea id="education" placeholder="Ex: Liceu / Universitate..."></textarea>
-
-<label id="skillsLabel">Competențe</label>
-<textarea id="skills" placeholder="Ex: permis categoria B, lucru în echipă..."></textarea>
-
-<label id="languagesLabel">Limbi străine</label>
-<input id="languages" placeholder="Ex: Italiană - avansat, Engleză - mediu">
-
+<label id="locationLabel">Oraș / Țară</label><input id="location" placeholder="Ex: Roma, Italia">
+<label id="jobLabel">Jobul dorit</label><input id="job" placeholder="Ex: Electrician">
+<label id="experienceLabel">Experiență profesională</label><textarea id="experience" placeholder="Scrie unde ai lucrat și ce responsabilități ai avut..."></textarea>
+<label id="educationLabel">Studii</label><textarea id="education" placeholder="Ex: Liceu / Universitate..."></textarea>
+<label id="skillsLabel">Competențe</label><textarea id="skills" placeholder="Ex: permis categoria B, lucru în echipă..."></textarea>
+<label id="languagesLabel">Limbi străine</label><input id="languages" placeholder="Ex: Italiană - avansat, Engleză - mediu">
 <button class="primary" onclick="generateCV()" id="generateButton">✨ Generează CV-ul</button>
 <p class="small" id="previewText">Poți verifica informațiile înainte de plată.</p>
 </div>
 
 <div id="result" class="card result">
-
 <h2 id="previewTitle">📄 Previzualizare CV</h2>
-
 <div class="cv">
-<h1 class="cv-name" id="cvName"></h1>
-<p id="cvContact"></p>
-<h2 class="cv-job" id="cvJob"></h2>
-
-<h3 id="experienceTitle">Experiență profesională</h3>
-<p id="cvExperience"></p>
-
-<h3 id="educationTitle">Studii</h3>
-<p id="cvEducation"></p>
-
-<h3 id="skillsTitle">Competențe</h3>
-<p id="cvSkills"></p>
-
-<h3 id="languagesTitle">Limbi străine</h3>
-<p id="cvLanguages"></p>
+<h1 class="cv-name" id="cvName"></h1><p id="cvContact"></p><h2 class="cv-job" id="cvJob"></h2>
+<h3 id="experienceTitle">Experiență profesională</h3><p id="cvExperience"></p>
+<h3 id="educationTitle">Studii</h3><p id="cvEducation"></p>
+<h3 id="skillsTitle">Competențe</h3><p id="cvSkills"></p>
+<h3 id="languagesTitle">Limbi străine</h3><p id="cvLanguages"></p>
 </div>
-
 <button class="pdf-btn" onclick="savePDF()" id="pdfButton">📄 Salvează CV ca PDF</button>
 <button class="letter-btn" onclick="generateLetter()" id="letterButton">✉️ Generează scrisoare de intenție</button>
 <div class="letter" id="letter"></div>
 
 <div class="jobs">
-<div class="info-box">
-<h2 id="jobsTitle">🌍 Găsește joburi în Europa</h2>
-<p id="jobsText">Folosim jobul, locația și competențele tale pentru a construi căutări relevante pentru piața europeană.</p>
-</div>
-
+<div class="info-box"><h2 id="jobsTitle">🌍 Găsește joburi în Europa</h2><p id="jobsText">Folosim jobul, locația și competențele tale pentru a construi căutări relevante pentru piața europeană.</p></div>
 <label id="jobCountryLabel">Țara în care vrei să lucrezi</label>
 <select id="jobCountry">
-<option value="Italy">🇮🇹 Italia</option>
-<option value="Germany">🇩🇪 Germania</option>
-<option value="Spain">🇪🇸 Spania</option>
-<option value="France">🇫🇷 Franța</option>
-<option value="Netherlands">🇳🇱 Țările de Jos</option>
-<option value="Belgium">🇧🇪 Belgia</option>
-<option value="Austria">🇦🇹 Austria</option>
-<option value="Portugal">🇵🇹 Portugalia</option>
-<option value="Switzerland">🇨🇭 Elveția</option>
+<option value="Italy">🇮🇹 Italia</option><option value="Germany">🇩🇪 Germania</option><option value="Spain">🇪🇸 Spania</option>
+<option value="France">🇫🇷 Franța</option><option value="Netherlands">🇳🇱 Țările de Jos</option><option value="Belgium">🇧🇪 Belgia</option>
+<option value="Austria">🇦🇹 Austria</option><option value="Portugal">🇵🇹 Portugalia</option><option value="Switzerland">🇨🇭 Elveția</option>
 <option value="United Kingdom">🇬🇧 Regatul Unit</option>
 </select>
-
 <button class="jobs-btn" onclick="findJobs()" id="jobsButton">🔎 Găsește joburi potrivite</button>
 <div id="jobsResults"></div>
 </div>
 
 <div class="payment">
-<h2 id="paymentTitle">💳 CV-ul tău este gata</h2>
-<p id="paymentText">Descarcă CV-ul profesional și primește scrisoarea de intenție.</p>
-
+<h2 id="paymentTitle">💳 CV-ul tău este gata</h2><p id="paymentText">Descarcă CV-ul profesional și primește scrisoarea de intenție.</p>
 <div class="currency-box">
 <label for="currency" id="currencyLabel">Moneda pentru afișarea prețului</label>
 <select id="currency" onchange="updatePrice()">
-<option value="EUR">🇪🇺 EUR – Euro</option>
-<option value="RON">🇷🇴 RON – Lei</option>
-<option value="USD">🇺🇸 USD – Dollar</option>
-<option value="GBP">🇬🇧 GBP – Pound</option>
-<option value="CHF">🇨🇭 CHF – Franc elvețian</option>
-<option value="CAD">🇨🇦 CAD – Dollar canadian</option>
-<option value="AUD">🇦🇺 AUD – Dollar australian</option>
-<option value="PLN">🇵🇱 PLN – Zlot</option>
-<option value="SEK">🇸🇪 SEK – Krona</option>
-<option value="NOK">🇳🇴 NOK – Krone</option>
-<option value="DKK">🇩🇰 DKK – Krone</option>
-<option value="CZK">🇨🇿 CZK – Koruna</option>
-<option value="HUF">🇭🇺 HUF – Forint</option>
+<option value="EUR">🇪🇺 EUR – Euro</option><option value="RON">🇷🇴 RON – Lei</option><option value="USD">🇺🇸 USD – Dollar</option>
+<option value="GBP">🇬🇧 GBP – Pound</option><option value="CHF">🇨🇭 CHF – Franc elvețian</option><option value="CAD">🇨🇦 CAD – Dollar canadian</option>
+<option value="AUD">🇦🇺 AUD – Dollar australian</option><option value="PLN">🇵🇱 PLN – Zlot</option><option value="SEK">🇸🇪 SEK – Krona</option>
+<option value="NOK">🇳🇴 NOK – Krone</option><option value="DKK">🇩🇰 DKK – Krone</option><option value="CZK">🇨🇿 CZK – Koruna</option><option value="HUF">🇭🇺 HUF – Forint</option>
 </select>
 </div>
-
 <div class="price" id="price">4,99 €</div>
-
 <button class="payment-btn" onclick="payment()" id="paymentButton">🔒 Continuă la plată</button>
 <p class="small" id="secureText">Plata este procesată securizat prin Stripe.</p>
 </div>
-
-</div>
-</div>
+</div></div>
 
 <script>
 const translations={
-ro:{
-badge:"🤖 Generator CV cu AI",heroTitle:"Creează un CV profesional în câteva minute",
-heroText:"Construiește CV-ul tău și găsește oportunități de muncă în Europa.",
-formTitle:"🚀 Creează-ți CV-ul",formDescription:"Completează informațiile și pregătește-te pentru jobul dorit.",
-name:"Nume și prenume",email:"Email",phone:"Telefon",location:"Oraș / Țară",job:"Jobul dorit",
-experience:"Experiență profesională",education:"Studii",skills:"Competențe",languages:"Limbi străine",
-generate:"✨ Generează CV-ul",previewText:"Poți verifica informațiile înainte de plată.",
-preview:"📄 Previzualizare CV",experienceTitle:"Experiență profesională",educationTitle:"Studii",
-skillsTitle:"Competențe",languagesTitle:"Limbi străine",pdf:"📄 Salvează CV ca PDF",
-letterButton:"✉️ Generează scrisoare de intenție",paymentTitle:"💳 CV-ul tău este gata",
-paymentText:"Descarcă CV-ul profesional și primește scrisoarea de intenție.",pay:"🔒 Continuă la plată",
-secure:"Plata este procesată securizat prin Stripe.",required:"Te rugăm să completezi numele și jobul dorit.",
-letterTitle:"Scrisoare de intenție",letterIntro:"Stimate angajator,",jobsTitle:"🌍 Găsește joburi în Europa",
-jobsText:"Folosim jobul, locația și competențele tale pentru a construi căutări relevante pentru piața europeană.",
-jobCountry:"Țara în care vrei să lucrezi",jobsButton:"🔎 Găsește joburi potrivite",
-currency:"Moneda pentru afișarea prețului"
-},
-it:{
-badge:"🤖 Generatore CV con AI",heroTitle:"Crea un CV professionale in pochi minuti",
-heroText:"Crea il tuo CV e trova opportunità di lavoro in Europa.",formTitle:"🚀 Crea il tuo CV",
-formDescription:"Inserisci le informazioni e preparati per il lavoro desiderato.",name:"Nome e cognome",
-email:"Email",phone:"Telefono",location:"Città / Paese",job:"Lavoro desiderato",experience:"Esperienza professionale",
-education:"Istruzione",skills:"Competenze",languages:"Lingue",generate:"✨ Genera CV",
-previewText:"Puoi controllare le informazioni prima del pagamento.",preview:"📄 Anteprima CV",
-experienceTitle:"Esperienza professionale",educationTitle:"Istruzione",skillsTitle:"Competenze",languagesTitle:"Lingue",
-pdf:"📄 Salva CV come PDF",letterButton:"✉️ Genera lettera di presentazione",paymentTitle:"💳 Il tuo CV è pronto",
-paymentText:"Scarica il CV professionale e ricevi la lettera di presentazione.",pay:"🔒 Continua al pagamento",
-secure:"Il pagamento è elaborato in modo sicuro tramite Stripe.",required:"Inserisci nome e lavoro desiderato.",
-letterTitle:"Lettera di presentazione",letterIntro:"Gentile responsabile delle assunzioni,",
-jobsTitle:"🌍 Trova lavoro in Europa",jobsText:"Usiamo il lavoro, la posizione e le competenze per creare ricerche di lavoro pertinenti.",
-jobCountry:"Paese in cui vuoi lavorare",jobsButton:"🔎 Trova lavori adatti",currency:"Valuta per visualizzare il prezzo"
-},
-en:{
-badge:"🤖 AI-powered CV builder",heroTitle:"Create a professional CV in minutes",
-heroText:"Build your CV and discover job opportunities across Europe.",formTitle:"🚀 Build your CV",
-formDescription:"Enter your information and prepare for your desired job.",name:"Full name",email:"Email",
-phone:"Phone",location:"City / Country",job:"Desired job",experience:"Professional experience",education:"Education",
-skills:"Skills",languages:"Languages",generate:"✨ Generate CV",previewText:"You can check your information before payment.",
-preview:"📄 CV Preview",experienceTitle:"Professional experience",educationTitle:"Education",skillsTitle:"Skills",
-languagesTitle:"Languages",pdf:"📄 Save CV as PDF",letterButton:"✉️ Generate cover letter",
-paymentTitle:"💳 Your CV is ready",paymentText:"Download your professional CV and receive a cover letter.",
-pay:"🔒 Continue to payment",secure:"Payment is securely processed through Stripe.",
-required:"Please enter your name and desired job.",letterTitle:"Cover Letter",letterIntro:"Dear Hiring Manager,",
-jobsTitle:"🌍 Find jobs in Europe",jobsText:"We use your desired job, location and skills to build relevant European job searches.",
-jobCountry:"Country where you want to work",jobsButton:"🔎 Find suitable jobs",currency:"Currency for displaying the price"
-},
-es:{
-badge:"🤖 Generador de CV con IA",heroTitle:"Crea un CV profesional en minutos",
-heroText:"Crea tu CV y encuentra oportunidades de trabajo en Europa.",formTitle:"🚀 Crea tu CV",
-formDescription:"Introduce tus datos y prepárate para el trabajo que deseas.",name:"Nombre y apellidos",email:"Email",
-phone:"Teléfono",location:"Ciudad / País",job:"Trabajo deseado",experience:"Experiencia profesional",education:"Educación",
-skills:"Habilidades",languages:"Idiomas",generate:"✨ Generar CV",previewText:"Puedes revisar tus datos antes del pago.",
-preview:"📄 Vista previa del CV",experienceTitle:"Experiencia profesional",educationTitle:"Educación",
-skillsTitle:"Habilidades",languagesTitle:"Idiomas",pdf:"📄 Guardar CV como PDF",
-letterButton:"✉️ Generar carta de presentación",paymentTitle:"💳 Tu CV está listo",
-paymentText:"Descarga tu CV profesional y recibe una carta de presentación.",pay:"🔒 Continuar al pago",
-secure:"El pago se procesa de forma segura mediante Stripe.",required:"Introduce tu nombre y el trabajo deseado.",
-letterTitle:"Carta de presentación",letterIntro:"Estimado responsable de contratación,",jobsTitle:"🌍 Encuentra trabajo en Europa",
-jobsText:"Usamos tu trabajo, ubicación y habilidades para crear búsquedas relevantes.",jobCountry:"País donde quieres trabajar",
-jobsButton:"🔎 Encontrar trabajos",currency:"Moneda para mostrar el precio"
-},
-de:{
-badge:"🤖 KI-gestützter Lebenslauf-Generator",heroTitle:"Erstelle in wenigen Minuten einen professionellen Lebenslauf",
-heroText:"Erstelle deinen Lebenslauf und finde Arbeitsmöglichkeiten in Europa.",formTitle:"🚀 Lebenslauf erstellen",
-formDescription:"Gib deine Informationen ein und bereite dich auf deinen Wunschjob vor.",name:"Vor- und Nachname",
-email:"E-Mail",phone:"Telefon",location:"Stadt / Land",job:"Gewünschter Beruf",experience:"Berufserfahrung",
-education:"Ausbildung",skills:"Fähigkeiten",languages:"Sprachen",generate:"✨ Lebenslauf erstellen",
-previewText:"Du kannst deine Angaben vor der Zahlung überprüfen.",preview:"📄 Lebenslauf-Vorschau",
-experienceTitle:"Berufserfahrung",educationTitle:"Ausbildung",skillsTitle:"Fähigkeiten",languagesTitle:"Sprachen",
-pdf:"📄 Lebenslauf als PDF speichern",letterButton:"✉️ Anschreiben erstellen",paymentTitle:"💳 Dein Lebenslauf ist fertig",
-paymentText:"Lade deinen professionellen Lebenslauf herunter und erhalte ein Anschreiben.",pay:"🔒 Zur Zahlung",
-secure:"Die Zahlung wird sicher über Stripe verarbeitet.",required:"Bitte gib deinen Namen und den gewünschten Beruf ein.",
-letterTitle:"Anschreiben",letterIntro:"Sehr geehrte Damen und Herren,",jobsTitle:"🌍 Jobs in Europa finden",
-jobsText:"Wir verwenden deinen Wunschberuf, Standort und Fähigkeiten für relevante Jobsuchen.",
-jobCountry:"Land, in dem du arbeiten möchtest",jobsButton:"🔎 Passende Jobs finden",currency:"Währung für die Preisanzeige"
-}
+ro:{badge:"🤖 Generator CV cu AI",heroTitle:"Creează un CV profesional în câteva minute",heroText:"Construiește CV-ul tău și găsește oportunități de muncă în Europa.",formTitle:"🚀 Creează-ți CV-ul",formDescription:"Completează informațiile și pregătește-te pentru jobul dorit.",name:"Nume și prenume",email:"Email",phone:"Telefon",location:"Oraș / Țară",job:"Jobul dorit",experience:"Experiență profesională",education:"Studii",skills:"Competențe",languages:"Limbi străine",generate:"✨ Generează CV-ul",previewText:"Poți verifica informațiile înainte de plată.",preview:"📄 Previzualizare CV",experienceTitle:"Experiență profesională",educationTitle:"Studii",skillsTitle:"Competențe",languagesTitle:"Limbi străine",pdf:"📄 Salvează CV ca PDF",letterButton:"✉️ Generează scrisoare de intenție",paymentTitle:"💳 CV-ul tău este gata",paymentText:"Descarcă CV-ul profesional și primește scrisoarea de intenție.",pay:"🔒 Continuă la plată",secure:"Plata este procesată securizat prin Stripe.",required:"Te rugăm să completezi numele și jobul dorit.",letterTitle:"Scrisoare de intenție",letterIntro:"Stimate angajator,",jobsTitle:"🌍 Găsește joburi în Europa",jobsText:"Folosim jobul, locația și competențele tale pentru a construi căutări relevante pentru piața europeană.",jobCountry:"Țara în care vrei să lucrezi",jobsButton:"🔎 Găsește joburi potrivite",currency:"Moneda pentru afișarea prețului",jobFirst:"Introdu mai întâi jobul dorit."},
+it:{badge:"🤖 Generatore CV con AI",heroTitle:"Crea un CV professionale in pochi minuti",heroText:"Crea il tuo CV e trova opportunità di lavoro in Europa.",formTitle:"🚀 Crea il tuo CV",formDescription:"Inserisci le informazioni e preparati per il lavoro desiderato.",name:"Nome e cognome",email:"Email",phone:"Telefono",location:"Città / Paese",job:"Lavoro desiderato",experience:"Esperienza professionale",education:"Istruzione",skills:"Competenze",languages:"Lingue",generate:"✨ Genera CV",previewText:"Puoi controllare le informazioni prima del pagamento.",preview:"📄 Anteprima CV",experienceTitle:"Esperienza professionale",educationTitle:"Istruzione",skillsTitle:"Competenze",languagesTitle:"Lingue",pdf:"📄 Salva CV come PDF",letterButton:"✉️ Genera lettera di presentazione",paymentTitle:"💳 Il tuo CV è pronto",paymentText:"Scarica il CV professionale e ricevi la lettera di presentazione.",pay:"🔒 Continua al pagamento",secure:"Il pagamento è elaborato in modo sicuro tramite Stripe.",required:"Inserisci nome e lavoro desiderato.",letterTitle:"Lettera di presentazione",letterIntro:"Gentile responsabile delle assunzioni,",jobsTitle:"🌍 Trova lavoro in Europa",jobsText:"Usiamo il lavoro, la posizione e le competenze per creare ricerche di lavoro pertinenti.",jobCountry:"Paese in cui vuoi lavorare",jobsButton:"🔎 Trova lavori adatti",currency:"Valuta per visualizzare il prezzo",jobFirst:"Inserisci prima il lavoro desiderato."},
+en:{badge:"🤖 AI-powered CV builder",heroTitle:"Create a professional CV in minutes",heroText:"Build your CV and discover job opportunities across Europe.",formTitle:"🚀 Build your CV",formDescription:"Enter your information and prepare for your desired job.",name:"Full name",email:"Email",phone:"Phone",location:"City / Country",job:"Desired job",experience:"Professional experience",education:"Education",skills:"Skills",languages:"Languages",generate:"✨ Generate CV",previewText:"You can check your information before payment.",preview:"📄 CV Preview",experienceTitle:"Professional experience",educationTitle:"Education",skillsTitle:"Skills",languagesTitle:"Languages",pdf:"📄 Save CV as PDF",letterButton:"✉️ Generate cover letter",paymentTitle:"💳 Your CV is ready",paymentText:"Download your professional CV and receive a cover letter.",pay:"🔒 Continue to payment",secure:"Payment is securely processed through Stripe.",required:"Please enter your name and desired job.",letterTitle:"Cover Letter",letterIntro:"Dear Hiring Manager,",jobsTitle:"🌍 Find jobs in Europe",jobsText:"We use your desired job, location and skills to build relevant European job searches.",jobCountry:"Country where you want to work",jobsButton:"🔎 Find suitable jobs",currency:"Currency for displaying the price",jobFirst:"Enter the desired job first."},
+es:{badge:"🤖 Generador de CV con IA",heroTitle:"Crea un CV profesional en minutos",heroText:"Crea tu CV y encuentra oportunidades de trabajo en Europa.",formTitle:"🚀 Crea tu CV",formDescription:"Introduce tus datos y prepárate para el trabajo que deseas.",name:"Nombre y apellidos",email:"Email",phone:"Teléfono",location:"Ciudad / País",job:"Trabajo deseado",experience:"Experiencia profesional",education:"Educación",skills:"Habilidades",languages:"Idiomas",generate:"✨ Generar CV",previewText:"Puedes revisar tus datos antes del pago.",preview:"📄 Vista previa del CV",experienceTitle:"Experiencia profesional",educationTitle:"Educación",skillsTitle:"Habilidades",languagesTitle:"Idiomas",pdf:"📄 Guardar CV como PDF",letterButton:"✉️ Generar carta de presentación",paymentTitle:"💳 Tu CV está listo",paymentText:"Descarga tu CV profesional y recibe una carta de presentación.",pay:"🔒 Continuar al pago",secure:"El pago se procesa de forma segura mediante Stripe.",required:"Introduce tu nombre y el trabajo deseado.",letterTitle:"Carta de presentación",letterIntro:"Estimado responsable de contratación,",jobsTitle:"🌍 Encuentra trabajo en Europa",jobsText:"Usamos tu trabajo, ubicación y habilidades para crear búsquedas relevantes.",jobCountry:"País donde quieres trabajar",jobsButton:"🔎 Encontrar trabajos",currency:"Moneda para mostrar el precio",jobFirst:"Introduce primero el trabajo deseado."},
+de:{badge:"🤖 KI-gestützter Lebenslauf-Generator",heroTitle:"Erstelle in wenigen Minuten einen professionellen Lebenslauf",heroText:"Erstelle deinen Lebenslauf und finde Arbeitsmöglichkeiten in Europa.",formTitle:"🚀 Lebenslauf erstellen",formDescription:"Gib deine Informationen ein und bereite dich auf deinen Wunschjob vor.",name:"Vor- und Nachname",email:"E-Mail",phone:"Telefon",location:"Stadt / Land",job:"Gewünschter Beruf",experience:"Berufserfahrung",education:"Ausbildung",skills:"Fähigkeiten",languages:"Sprachen",generate:"✨ Lebenslauf erstellen",previewText:"Du kannst deine Angaben vor der Zahlung überprüfen.",preview:"📄 Lebenslauf-Vorschau",experienceTitle:"Berufserfahrung",educationTitle:"Ausbildung",skillsTitle:"Fähigkeiten",languagesTitle:"Sprachen",pdf:"📄 Lebenslauf als PDF speichern",letterButton:"✉️ Anschreiben erstellen",paymentTitle:"💳 Dein Lebenslauf ist fertig",paymentText:"Lade deinen professionellen Lebenslauf herunter und erhalte ein Anschreiben.",pay:"🔒 Zur Zahlung",secure:"Die Zahlung wird sicher über Stripe verarbeitet.",required:"Bitte gib deinen Namen und den gewünschten Beruf ein.",letterTitle:"Anschreiben",letterIntro:"Sehr geehrte Damen und Herren,",jobsTitle:"🌍 Jobs in Europa finden",jobsText:"Wir verwenden deinen Wunschberuf, Standort und Fähigkeiten für relevante Jobsuchen.",jobCountry:"Land, in dem du arbeiten möchtest",jobsButton:"🔎 Passende Jobs finden",currency:"Währung für die Preisanzeige",jobFirst:"Bitte gib zuerst den gewünschten Beruf ein."}
 };
 
 function getValue(id){return document.getElementById(id).value.trim();}
@@ -327,16 +172,14 @@ generate:"generateButton",previewText:"previewText",preview:"previewTitle",exper
 educationTitle:"educationTitle",skillsTitle:"skillsTitle",languagesTitle:"languagesTitle",pdf:"pdfButton",
 letterButton:"letterButton",paymentTitle:"paymentTitle",paymentText:"paymentText",pay:"paymentButton",
 secure:"secureText",jobsTitle:"jobsTitle",jobsText:"jobsText",jobCountry:"jobCountryLabel",jobsButton:"jobsButton",
-currency:"currencyLabel",currencyNote:"currencyNote"
+currency:"currencyLabel"
 };
-Object.keys(ids).forEach(k=>{document.getElementById(ids[k]).textContent=t[k];});
+Object.keys(ids).forEach(k=>document.getElementById(ids[k]).textContent=t[k]);
 updatePrice();
 }
 
 function generateCV(){
-const name=getValue("name"),email=getValue("email"),phoneNumber=getValue("phone"),
-prefix=document.getElementById("country").value,location=getValue("location"),job=getValue("job"),
-lang=document.getElementById("language").value,t=translations[lang];
+const name=getValue("name"),email=getValue("email"),phoneNumber=getValue("phone"),prefix=document.getElementById("country").value,location=getValue("location"),job=getValue("job"),lang=document.getElementById("language").value,t=translations[lang];
 if(!name||!job){alert(t.required);return;}
 document.getElementById("cvName").textContent=name;
 document.getElementById("cvContact").textContent=[email,phoneNumber?prefix+" "+phoneNumber:"",location].filter(Boolean).join(" • ");
@@ -349,14 +192,12 @@ document.getElementById("result").style.display="block";
 document.querySelector(".jobs").style.display="block";
 document.getElementById("result").scrollIntoView({behavior:"smooth"});
 }
-
 function savePDF(){window.print();}
 
 function generateLetter(){
-const name=getValue("name"),job=getValue("job"),experience=getValue("experience"),skills=getValue("skills"),
-lang=document.getElementById("language").value,t=translations[lang];
+const name=getValue("name"),job=getValue("job"),experience=getValue("experience"),skills=getValue("skills"),lang=document.getElementById("language").value,t=translations[lang];
 let letter="";
-if(lang==="ro") letter=`${t.letterIntro}
+if(lang==="ro")letter=`${t.letterIntro}
 
 Numele meu este ${name} și doresc să candidez pentru postul de ${job}.
 
@@ -372,7 +213,7 @@ Vă mulțumesc pentru timpul acordat și aștept cu interes posibilitatea unui i
 
 Cu stimă,
 ${name}`;
-else if(lang==="it") letter=`${t.letterIntro}
+else if(lang==="it")letter=`${t.letterIntro}
 
 Mi chiamo ${name} e desidero candidarmi per la posizione di ${job}.
 
@@ -388,7 +229,7 @@ Grazie per la vostra attenzione. Rimango a disposizione per un colloquio.
 
 Cordiali saluti,
 ${name}`;
-else if(lang==="en") letter=`${t.letterIntro}
+else if(lang==="en")letter=`${t.letterIntro}
 
 My name is ${name} and I would like to apply for the position of ${job}.
 
@@ -404,7 +245,7 @@ Thank you for considering my application. I would be pleased to discuss my appli
 
 Kind regards,
 ${name}`;
-else if(lang==="es") letter=`${t.letterIntro}
+else if(lang==="es")letter=`${t.letterIntro}
 
 Mi nombre es ${name} y deseo presentar mi candidatura para el puesto de ${job}.
 
@@ -443,83 +284,45 @@ box.scrollIntoView({behavior:"smooth"});
 }
 
 function findJobs(){
-const job=getValue("job"),location=getValue("location"),skills=getValue("skills"),
-country=document.getElementById("jobCountry").value;
-if(!job){alert("Introdu mai întâi jobul dorit.");return;}
+const job=getValue("job"),location=getValue("location"),skills=getValue("skills"),country=document.getElementById("jobCountry").value;
+const lang=document.getElementById("language").value,t=translations[lang];
+if(!job){alert(t.jobFirst);return;}
 const query=encodeURIComponent(job+" "+country+" "+location+" "+skills);
 const googleJobs="https://www.google.com/search?q="+query+"+jobs";
 const indeed="https://www.indeed.com/jobs?q="+encodeURIComponent(job)+"&l="+encodeURIComponent(country);
 const linkedin="https://www.linkedin.com/jobs/search/?keywords="+encodeURIComponent(job)+"&location="+encodeURIComponent(country);
 document.getElementById("jobsResults").innerHTML=`
-<div class="job-card"><h3>🎯 ${job}</h3><div class="match">⭐ Profil potrivit pentru căutarea ta</div>
-<p>Țară: <strong>${country}</strong></p><p>Locație: <strong>${location||"Europa"}</strong></p>
-<a class="job-link" href="${googleJobs}" target="_blank" rel="noopener">🔎 Caută joburi pe Google Jobs</a></div>
-<div class="job-card"><h3>💼 Indeed</h3><p>Caută automat poziții pentru <strong>${job}</strong> în ${country}.</p>
-<a class="job-link" href="${indeed}" target="_blank" rel="noopener">Vezi joburile</a></div>
-<div class="job-card"><h3>💼 LinkedIn Jobs</h3><p>Vezi oportunități profesionale pentru profilul tău.</p>
-<a class="job-link" href="${linkedin}" target="_blank" rel="noopener">Vezi joburile</a></div>
-<div class="info-box"><strong>🤖 Următorul nivel:</strong><p>În versiunea următoare putem conecta un API securizat pentru ca CVSmart AI să analizeze automat fiecare ofertă, să calculeze potrivirea cu CV-ul și să genereze o candidatură personalizată.</p></div>`;
+<div class="job-card"><h3>🎯 ${job}</h3><div class="match">⭐ ${lang==="it"?"Profilo adatto alla tua ricerca":lang==="en"?"Profile suitable for your search":lang==="es"?"Perfil adecuado para tu búsqueda":lang==="de"?"Passendes Profil für deine Suche":"Profil potrivit pentru căutarea ta"}</div>
+<p>${lang==="it"?"Paese":lang==="en"?"Country":lang==="es"?"País":lang==="de"?"Land":"Țară"}: <strong>${country}</strong></p><p>${lang==="it"?"Località":lang==="en"?"Location":lang==="es"?"Ubicación":lang==="de"?"Ort":"Locație"}: <strong>${location||"Europa"}</strong></p>
+<a class="job-link" href="${googleJobs}" target="_blank" rel="noopener">🔎 ${lang==="it"?"Cerca lavori su Google Jobs":lang==="en"?"Search jobs on Google Jobs":lang==="es"?"Buscar empleos en Google Jobs":lang==="de"?"Jobs auf Google Jobs suchen":"Caută joburi pe Google Jobs"}</a></div>
+<div class="job-card"><h3>💼 Indeed</h3><p>${lang==="it"?"Cerca automaticamente posizioni per":lang==="en"?"Automatically search positions for":lang==="es"?"Busca automáticamente puestos para":lang==="de"?"Suche automatisch Stellen für":"Caută automat poziții pentru"} <strong>${job}</strong> ${lang==="it"?"in":lang==="en"?"in":lang==="es"?"en":lang==="de"?"in":"în"} ${country}.</p>
+<a class="job-link" href="${indeed}" target="_blank" rel="noopener">${lang==="it"?"Vedi lavori":lang==="en"?"View jobs":lang==="es"?"Ver empleos":lang==="de"?"Jobs ansehen":"Vezi joburile"}</a></div>
+<div class="job-card"><h3>💼 LinkedIn Jobs</h3><p>${lang==="it"?"Visualizza opportunità professionali per il tuo profilo.":lang==="en"?"View professional opportunities for your profile.":lang==="es"?"Consulta oportunidades profesionales para tu perfil.":lang==="de"?"Sieh dir berufliche Möglichkeiten für dein Profil an.":"Vezi oportunități profesionale pentru profilul tău."}</p>
+<a class="job-link" href="${linkedin}" target="_blank" rel="noopener">${lang==="it"?"Vedi lavori":lang==="en"?"View jobs":lang==="es"?"Ver empleos":lang==="de"?"Jobs ansehen":"Vezi joburile"}</a></div>`;
 document.getElementById("jobsResults").scrollIntoView({behavior:"smooth"});
 }
 
-/*
-========================================
-PREȚURI + PLĂȚI INTERNAȚIONALE
-========================================
-Prețul se poate afișa în mai multe monede.
-Pentru plata REALĂ, Stripe are nevoie de un Payment Link
-corespunzător pentru fiecare monedă.
-*/
 const prices={
-EUR:{value:4.99,decimals:2,symbol:"€",position:"after"},
-RON:{value:24.99,decimals:2,symbol:"lei",position:"after"},
-USD:{value:5.49,decimals:2,symbol:"$",position:"before"},
-GBP:{value:4.29,decimals:2,symbol:"£",position:"before"},
-CHF:{value:4.79,decimals:2,symbol:"CHF",position:"after"},
-CAD:{value:7.49,decimals:2,symbol:"C$",position:"before"},
-AUD:{value:8.49,decimals:2,symbol:"A$",position:"before"},
-PLN:{value:21.99,decimals:2,symbol:"zł",position:"after"},
-SEK:{value:59,decimals:0,symbol:"kr",position:"after"},
-NOK:{value:59,decimals:0,symbol:"kr",position:"after"},
-DKK:{value:32,decimals:0,symbol:"kr",position:"after"},
-CZK:{value:125,decimals:0,symbol:"Kč",position:"after"},
-HUF:{value:1990,decimals:0,symbol:"Ft",position:"after"}
-};
-
-/* EUR este deja configurat. Pentru celelalte monede
-   se vor introduce aici Payment Links Stripe separate. */
-const stripePaymentLinks={
-EUR:"https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00",
-RON:"",USD:"",GBP:"",CHF:"",CAD:"",AUD:"",PLN:"",SEK:"",NOK:"",DKK:"",CZK:"",HUF:""
-};
-
+EUR:{value:4.99,decimals:2,symbol:"€",position:"after"},RON:{value:24.99,decimals:2,symbol:"lei",position:"after"},
+USD:{value:5.49,decimals:2,symbol:"$",position:"before"},GBP:{value:4.29,decimals:2,symbol:"£",position:"before"},
+CHF:{value:4.79,decimals:2,symbol:"CHF",position:"after"},CAD:{value:7.49,decimals:2,symbol:"C$",position:"before"},
+AUD:{value:8.49,decimals:2,symbol:"A$",position:"before"},PLN:{value:21.99,decimals:2,symbol:"zł",position:"after"},
+SEK:{value:59,decimals:0,symbol:"kr",position:"after"},NOK:{value:59,decimals:0,symbol:"kr",position:"after"},
+DKK:{value:32,decimals:0,symbol:"kr",position:"after"},CZK:{value:125,decimals:0,symbol:"Kč",position:"after"},
+HUF:{value:1990,decimals:0,symbol:"Ft",position:"after"}};
+const stripePaymentLinks={EUR:"https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00",RON:"",USD:"",GBP:"",CHF:"",CAD:"",AUD:"",PLN:"",SEK:"",NOK:"",DKK:"",CZK:"",HUF:""};
 function updatePrice(){
-const code=document.getElementById("currency").value;
-const p=prices[code];
+const code=document.getElementById("currency").value,p=prices[code];
 const number=p.value.toLocaleString("en-US",{minimumFractionDigits:p.decimals,maximumFractionDigits:p.decimals});
 document.getElementById("price").textContent=p.position==="before"?p.symbol+number:number+" "+p.symbol;
 }
-
 function payment(){
-const code=document.getElementById("currency").value;
-const link=stripePaymentLinks[code];
+const code=document.getElementById("currency").value,link=stripePaymentLinks[code];
 if(!link){
-const messages={
-ro:"Plata în această monedă nu este încă activată. Alege EUR pentru a continua plata.",
-it:"Il pagamento in questa valuta non è ancora attivo. Scegli EUR per continuare.",
-en:"Payment in this currency is not active yet. Choose EUR to continue.",
-es:"El pago en esta moneda aún no está activo. Elige EUR para continuar.",
-de:"Die Zahlung in dieser Währung ist noch nicht aktiviert. Wähle EUR, um fortzufahren."
-};
-const lang=document.getElementById("language").value;
-alert(messages[lang]||messages.en);
-return;
-}
+const messages={ro:"Plata în această monedă nu este încă activată. Alege EUR pentru a continua plata.",it:"Il pagamento in questa valuta non è ancora attivo. Scegli EUR per continuare.",en:"Payment in this currency is not active yet. Choose EUR to continue.",es:"El pago en esta moneda aún no está activo. Elige EUR para continuar.",de:"Die Zahlung in dieser Währung ist noch nicht aktiviert. Wähle EUR, um fortzufahren."};
+alert(messages[document.getElementById("language").value]||messages.en);return;}
 window.location.href=link;
 }
-
-updatePrice();
-
 changeLanguage();
 </script>
 </body>
