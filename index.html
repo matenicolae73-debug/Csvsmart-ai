@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0BR73BQW5"></script>
   <script>
@@ -13,15 +10,33 @@
     gtag('config', 'G-Y0BR73BQW5');
   </script>
 
-  <title>CVSmart AI – Professional CV Builder</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CVSmart AI – AI CV Builder</title>
 
   <meta
     name="description"
-    content="Create a professional CV and cover letter in minutes with CVSmart AI."
+    content="Create a professional CV with AI in minutes. Build, improve and personalize your CV in English, Italian, Romanian, Spanish or German."
   >
 
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#111827">
+
+  <meta property="og:title" content="CVSmart AI – AI CV Builder">
+  <meta property="og:description" content="Create a professional CV with AI in minutes.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CVSmart AI",
+    "description": "AI-powered professional CV builder.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web"
+  }
+  </script>
 
   <style>
     * {
@@ -322,7 +337,10 @@
 
 <header>
   <div class="top">
-    <div class="logo">CVSmart AI</div>
+
+    <div class="logo">
+      CVSmart AI
+    </div>
 
     <select
       id="uiLanguage"
@@ -335,9 +353,11 @@
       <option value="es">🇪🇸 Español</option>
       <option value="de">🇩🇪 Deutsch</option>
     </select>
+
   </div>
 
   <div class="hero">
+
     <div class="badge" id="badge">
       🤖 AI-powered CV builder
     </div>
@@ -349,306 +369,307 @@
     <p id="heroText">
       Build a modern CV and prepare your application for the job you want.
     </p>
+
   </div>
 </header>
 
 <main class="container">
 
-  <section class="card form-card">
+<section class="card form-card">
 
-    <h2 id="formTitle">
-      🚀 Build your CV
-    </h2>
+  <h2 id="formTitle">
+    🚀 Build your CV
+  </h2>
 
-    <p class="small" id="formIntro">
-      Enter your information and preview your CV before payment.
-    </p>
+  <p class="small" id="formIntro">
+    Enter your information and preview your CV before payment.
+  </p>
 
-    <div class="grid">
+  <div class="grid">
 
-      <div>
-        <label id="nameLabel">Full name</label>
-        <input
-          id="name"
-          placeholder="e.g. John Smith"
-        >
-      </div>
+    <div>
+      <label id="nameLabel">Full name</label>
+      <input
+        id="name"
+        placeholder="e.g. John Smith"
+      >
+    </div>
 
-      <div>
-        <label id="emailLabel">Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="e.g. john@email.com"
-        >
-      </div>
+    <div>
+      <label id="emailLabel">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="e.g. john@email.com"
+      >
+    </div>
 
-      <div>
-        <label id="phoneLabel">Phone</label>
-        <input
-          id="phone"
-          placeholder="+39 ..."
-        >
-      </div>
+    <div>
+      <label id="phoneLabel">Phone</label>
+      <input
+        id="phone"
+        placeholder="+39 ..."
+      >
+    </div>
 
-      <div>
-        <label id="locationLabel">City / Country</label>
-        <input
-          id="location"
-          placeholder="e.g. Milan, Italy"
-        >
-      </div>
+    <div>
+      <label id="locationLabel">City / Country</label>
+      <input
+        id="location"
+        placeholder="e.g. Milan, Italy"
+      >
+    </div>
 
-      <div class="full">
-        <label id="jobLabel">Target job</label>
-        <input
-          id="job"
-          placeholder="e.g. Electrician, Driver, Chef"
-        >
-      </div>
+    <div class="full">
+      <label id="jobLabel">Target job</label>
+      <input
+        id="job"
+        placeholder="e.g. Electrician, Driver, Chef"
+      >
+    </div>
 
-      <div class="full">
+    <div class="full">
 
-        <label id="experienceLabel">
-          Professional experience
-        </label>
+      <label id="experienceLabel">
+        Professional experience
+      </label>
 
-        <textarea
-          id="experience"
-          placeholder="Write your professional experience..."
-        ></textarea>
+      <textarea
+        id="experience"
+        placeholder="Write your professional experience..."
+      ></textarea>
 
-        <button
-          class="dark-button"
-          onclick="improveWithAI()"
-        >
-          ✨
-          <span id="aiButtonText">
-            Improve with AI
-          </span>
-        </button>
+      <button
+        class="dark-button"
+        onclick="improveWithAI()"
+      >
+        ✨
+        <span id="aiButtonText">
+          Improve with AI
+        </span>
+      </button>
 
-        <div id="aiNotice" class="notice"></div>
-
-      </div>
-
-      <div class="full">
-
-        <label id="educationLabel">
-          Education
-        </label>
-
-        <textarea
-          id="education"
-          placeholder="e.g. Technical high school, 2018"
-        ></textarea>
-
-      </div>
-
-      <div class="full">
-
-        <label id="skillsLabel">
-          Skills
-        </label>
-
-        <textarea
-          id="skills"
-          placeholder="e.g. teamwork, Excel, driving licence B..."
-        ></textarea>
-
-      </div>
-
-      <div class="full">
-
-        <label id="languagesLabel">
-          Languages
-        </label>
-
-        <input
-          id="languages"
-          placeholder="e.g. English - intermediate"
-        >
-
-      </div>
-
-      <div class="full">
-
-        <label id="cvLanguageLabel">
-          CV language
-        </label>
-
-        <select id="language">
-
-          <option value="English">
-            🇬🇧 English
-          </option>
-
-          <option value="Italian">
-            🇮🇹 Italiano
-          </option>
-
-          <option value="Romanian">
-            🇷🇴 Română
-          </option>
-
-          <option value="Spanish">
-            🇪🇸 Español
-          </option>
-
-          <option value="German">
-            🇩🇪 Deutsch
-          </option>
-
-        </select>
-
-      </div>
+      <div id="aiNotice" class="notice"></div>
 
     </div>
 
-    <button onclick="generateCV()">
+    <div class="full">
 
-      ✨
-      <span id="generateText">
-        Generate CV
+      <label id="educationLabel">
+        Education
+      </label>
+
+      <textarea
+        id="education"
+        placeholder="e.g. Technical high school, 2018"
+      ></textarea>
+
+    </div>
+
+    <div class="full">
+
+      <label id="skillsLabel">
+        Skills
+      </label>
+
+      <textarea
+        id="skills"
+        placeholder="e.g. teamwork, Excel, driving licence B..."
+      ></textarea>
+
+    </div>
+
+    <div class="full">
+
+      <label id="languagesLabel">
+        Languages
+      </label>
+
+      <input
+        id="languages"
+        placeholder="e.g. English - intermediate"
+      >
+
+    </div>
+
+    <div class="full">
+
+      <label id="cvLanguageLabel">
+        CV language
+      </label>
+
+      <select id="language">
+
+        <option value="English">
+          🇬🇧 English
+        </option>
+
+        <option value="Italian">
+          🇮🇹 Italiano
+        </option>
+
+        <option value="Romanian">
+          🇷🇴 Română
+        </option>
+
+        <option value="Spanish">
+          🇪🇸 Español
+        </option>
+
+        <option value="German">
+          🇩🇪 Deutsch
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+  <button onclick="generateCV()">
+
+    ✨
+    <span id="generateText">
+      Generate CV
+    </span>
+
+  </button>
+
+  <p class="small" id="previewNote">
+    You can check your information before payment.
+  </p>
+
+</section>
+
+
+<section id="result" class="card">
+
+  <h2 id="previewTitle">
+    📄 CV Preview
+  </h2>
+
+  <div class="cv" id="cvDocument">
+
+    <h1 id="cvName"></h1>
+
+    <p id="cvContact"></p>
+
+    <h2 id="cvJob"></h2>
+
+    <h3 id="cvExperienceTitle">
+      Professional experience
+    </h3>
+
+    <p id="cvExperience"></p>
+
+    <h3 id="cvEducationTitle">
+      Education
+    </h3>
+
+    <p id="cvEducation"></p>
+
+    <h3 id="cvSkillsTitle">
+      Skills
+    </h3>
+
+    <p id="cvSkills"></p>
+
+    <h3 id="cvLanguagesTitle">
+      Languages
+    </h3>
+
+    <p id="cvLanguages"></p>
+
+  </div>
+
+
+  <div class="actions">
+
+    <button
+      class="green-button"
+      onclick="printCV()"
+    >
+      📄
+      <span id="pdfButtonText">
+        Save CV as PDF
+      </span>
+    </button>
+
+    <button
+      class="secondary-button"
+      onclick="generateLetter()"
+    >
+      ✉️
+      <span id="letterButtonText">
+        Generate cover letter
+      </span>
+    </button>
+
+  </div>
+
+
+  <div id="letterSection" style="display:none;">
+
+    <h2
+      class="letter-title"
+      id="letterTitle"
+      style="margin-top:30px;"
+    >
+      ✉️ Cover Letter
+    </h2>
+
+    <div
+      class="letter"
+      id="coverLetter"
+    ></div>
+
+    <div class="letter-actions">
+
+      <button
+        class="green-button"
+        onclick="printLetter()"
+      >
+        📄
+        <span id="letterPdfText">
+          Save cover letter as PDF
+        </span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="payment">
+
+    <h2 id="readyTitle">
+      💳 Your CV is ready
+    </h2>
+
+    <p id="readyText">
+      Download your professional CV and receive a cover letter.
+    </p>
+
+    <div class="price">
+      4,99 €
+    </div>
+
+    <button onclick="payment()">
+
+      🔒
+      <span id="paymentText">
+        Continue to secure payment
       </span>
 
     </button>
 
-    <p class="small" id="previewNote">
-      You can check your information before payment.
+    <p class="small" id="secureText">
+      Payment is processed securely through Stripe.
     </p>
 
-  </section>
+  </div>
 
-
-  <section id="result" class="card">
-
-    <h2 id="previewTitle">
-      📄 CV Preview
-    </h2>
-
-    <div class="cv" id="cvDocument">
-
-      <h1 id="cvName"></h1>
-
-      <p id="cvContact"></p>
-
-      <h2 id="cvJob"></h2>
-
-      <h3 id="cvExperienceTitle">
-        Professional experience
-      </h3>
-
-      <p id="cvExperience"></p>
-
-      <h3 id="cvEducationTitle">
-        Education
-      </h3>
-
-      <p id="cvEducation"></p>
-
-      <h3 id="cvSkillsTitle">
-        Skills
-      </h3>
-
-      <p id="cvSkills"></p>
-
-      <h3 id="cvLanguagesTitle">
-        Languages
-      </h3>
-
-      <p id="cvLanguages"></p>
-
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        class="green-button"
-        onclick="printCV()"
-      >
-        📄
-        <span id="pdfButtonText">
-          Save CV as PDF
-        </span>
-      </button>
-
-      <button
-        class="secondary-button"
-        onclick="generateLetter()"
-      >
-        ✉️
-        <span id="letterButtonText">
-          Generate cover letter
-        </span>
-      </button>
-
-    </div>
-
-
-    <div id="letterSection" style="display:none;">
-
-      <h2
-        class="letter-title"
-        id="letterTitle"
-        style="margin-top:30px;"
-      >
-        ✉️ Cover Letter
-      </h2>
-
-      <div
-        class="letter"
-        id="coverLetter"
-      ></div>
-
-      <div class="letter-actions">
-
-        <button
-          class="green-button"
-          onclick="printLetter()"
-        >
-          📄
-          <span id="letterPdfText">
-            Save cover letter as PDF
-          </span>
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="payment">
-
-      <h2 id="readyTitle">
-        💳 Your CV is ready
-      </h2>
-
-      <p id="readyText">
-        Download your professional CV and receive a cover letter.
-      </p>
-
-      <div class="price">
-        4,99 €
-      </div>
-
-      <button onclick="payment()">
-
-        🔒
-        <span id="paymentText">
-          Continue to secure payment
-        </span>
-
-      </button>
-
-      <p class="small" id="secureText">
-        Payment is processed securely through Stripe.
-      </p>
-
-    </div>
-
-  </section>
+</section>
 
 </main>
 
@@ -848,24 +869,16 @@ let currentLanguage = "en";
 
 
 function getValue(id) {
-
-  return document
-    .getElementById(id)
-    .value
-    .trim();
-
+  return document.getElementById(id).value.trim();
 }
 
 
 function setText(id, text) {
+  const element = document.getElementById(id);
 
-  const element =
-    document.getElementById(id);
-
-  if(element) {
+  if (element) {
     element.textContent = text;
   }
-
 }
 
 
@@ -919,7 +932,6 @@ function changeLanguage() {
   setText("readyText", t.readyText);
   setText("paymentText", t.payment);
   setText("secureText", t.secure);
-
 }
 
 
@@ -937,8 +949,7 @@ function improveWithAI() {
   const t =
     translations[currentLanguage];
 
-
-  if(!experience) {
+  if (!experience) {
 
     notice.textContent =
       t.required;
@@ -947,19 +958,14 @@ function improveWithAI() {
       "block";
 
     return;
-
   }
-
 
   const sentences =
     experience
       .replace(/\s+/g, " ")
       .split(/[.!?]+/)
-      .map(
-        sentence => sentence.trim()
-      )
+      .map(sentence => sentence.trim())
       .filter(Boolean);
-
 
   const improved =
     sentences
@@ -971,21 +977,17 @@ function improveWithAI() {
       )
       .join("\n");
 
-
   document.getElementById(
     "experience"
   ).value =
-
     (job ? job + " – " : "") +
     improved;
-
 
   notice.textContent =
     t.aiMessage;
 
   notice.style.display =
     "block";
-
 }
 
 
@@ -1000,26 +1002,21 @@ function generateCV() {
   const t =
     translations[currentLanguage];
 
-
-  if(!name || !job) {
+  if (!name || !job) {
 
     alert(t.required);
 
     return;
-
   }
-
 
   document.getElementById(
     "cvName"
   ).textContent =
     name;
 
-
   document.getElementById(
     "cvContact"
   ).textContent =
-
     [
       getValue("email"),
       getValue("phone"),
@@ -1028,53 +1025,41 @@ function generateCV() {
     .filter(Boolean)
     .join(" • ");
 
-
   document.getElementById(
     "cvJob"
   ).textContent =
     job;
-
 
   document.getElementById(
     "cvExperience"
   ).textContent =
     getValue("experience") || "—";
 
-
   document.getElementById(
     "cvEducation"
   ).textContent =
     getValue("education") || "—";
-
 
   document.getElementById(
     "cvSkills"
   ).textContent =
     getValue("skills") || "—";
 
-
   document.getElementById(
     "cvLanguages"
   ).textContent =
     getValue("languages") || "—";
-
 
   document.getElementById(
     "result"
   ).style.display =
     "block";
 
-
   window.scrollTo({
-
     top:
-      document.getElementById("result")
-        .offsetTop - 10,
-
+      document.getElementById("result").offsetTop - 10,
     behavior:"smooth"
-
   });
-
 }
 
 
@@ -1093,26 +1078,21 @@ function generateLetter() {
     getValue("skills");
 
   const language =
-    document.getElementById(
-      "language"
-    ).value;
+    document.getElementById("language").value;
 
-
-  if(!name || !job) {
+  if (!name || !job) {
 
     alert(
       translations[currentLanguage].required
     );
 
     return;
-
   }
-
 
   let letter = "";
 
 
-  if(language === "Italian") {
+  if (language === "Italian") {
 
     letter =
 `Gentile Responsabile delle Risorse Umane,
@@ -1133,7 +1113,7 @@ Cordiali saluti,
 
 ${name}`;
 
-  } else if(language === "Romanian") {
+  } else if (language === "Romanian") {
 
     letter =
 `Stimată echipă de recrutare,
@@ -1154,7 +1134,7 @@ Cu stimă,
 
 ${name}`;
 
-  } else if(language === "Spanish") {
+  } else if (language === "Spanish") {
 
     letter =
 `Estimado equipo de selección,
@@ -1175,7 +1155,7 @@ Atentamente,
 
 ${name}`;
 
-  } else if(language === "German") {
+  } else if (language === "German") {
 
     letter =
 `Sehr geehrtes Recruiting-Team,
@@ -1216,7 +1196,6 @@ Thank you for considering my application. I would be happy to discuss my applica
 Kind regards,
 
 ${name}`;
-
   }
 
 
@@ -1225,21 +1204,24 @@ ${name}`;
   ).textContent =
     letter;
 
-
   document.getElementById(
     "letterSection"
   ).style.display =
     "block";
-
 
   document
     .getElementById("letterSection")
     .scrollIntoView({
       behavior:"smooth"
     });
-
 }
 
+
+/*
+  PDF CV
+  Folosește fereastra de print a dispozitivului.
+  Pe Android/iPhone poți alege "Save as PDF".
+*/
 
 function printCV() {
 
@@ -1251,12 +1233,17 @@ function printCV() {
       "cvDocument"
     ).outerHTML;
 
-
   document.body.innerHTML =
-    `<div style="max-width:800px;margin:30px auto;font-family:Arial;">
+    `
+    <div style="
+      max-width:800px;
+      margin:30px auto;
+      font-family:Arial,sans-serif;
+      color:#111827;
+    ">
       ${cv}
-    </div>`;
-
+    </div>
+    `;
 
   window.print();
 
@@ -1264,9 +1251,12 @@ function printCV() {
     original;
 
   location.reload();
-
 }
 
+
+/*
+  PDF SCRISOARE
+*/
 
 function printLetter() {
 
@@ -1278,13 +1268,22 @@ function printLetter() {
       "coverLetter"
     ).outerHTML;
 
+  const title =
+    translations[currentLanguage].letterTitle;
 
   document.body.innerHTML =
-    `<div style="max-width:800px;margin:30px auto;font-family:Arial;line-height:1.7;">
-      <h1>${translations[currentLanguage].letterTitle}</h1>
+    `
+    <div style="
+      max-width:800px;
+      margin:30px auto;
+      font-family:Arial,sans-serif;
+      line-height:1.7;
+      color:#111827;
+    ">
+      <h1>${title}</h1>
       ${letter}
-    </div>`;
-
+    </div>
+    `;
 
   window.print();
 
@@ -1292,15 +1291,17 @@ function printLetter() {
     original;
 
   location.reload();
-
 }
 
+
+/*
+  STRIPE
+*/
 
 function payment() {
 
   window.location.href =
     "https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00";
-
 }
 
 
