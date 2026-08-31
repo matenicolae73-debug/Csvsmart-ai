@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0BR73BQW5"></script>
   <script>
@@ -10,33 +13,19 @@
     gtag('config', 'G-Y0BR73BQW5');
   </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVSmart AI – Professional CV Builder</title>
 
-  <title>CVSmart AI – AI CV Builder</title>
-
-  <meta
-    name="description"
-    content="Create a professional CV with AI in minutes. Build, improve and personalize your CV in English, Italian, Romanian, Spanish or German."
-  >
+  <meta name="description"
+    content="Create a professional CV online with CVSmart AI in minutes.">
 
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#111827">
 
-  <meta property="og:title" content="CVSmart AI – AI CV Builder">
-  <meta property="og:description" content="Create a professional CV with AI in minutes.">
+  <meta property="og:title" content="CVSmart AI – Professional CV Builder">
+  <meta property="og:description"
+    content="Create a professional CV online in minutes.">
   <meta property="og:type" content="website">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "CVSmart AI",
-    "description": "AI-powered professional CV builder.",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web"
-  }
-  </script>
+  <meta name="theme-color" content="#172554">
 
   <style>
     * {
@@ -45,19 +34,19 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f6fb;
+      color: #172033;
     }
 
     header {
-      background: linear-gradient(135deg, #111827, #1e3a8a);
+      background: linear-gradient(135deg, #172554, #2563eb);
       color: white;
-      padding: 25px 16px 55px;
+      padding: 28px 18px 45px;
     }
 
-    .top {
-      max-width: 1000px;
+    .header-inner {
+      max-width: 900px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -66,51 +55,53 @@
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 32px;
       font-weight: 800;
+      white-space: nowrap;
     }
 
-    .language-selector {
+    #language {
       width: auto;
-      min-width: 150px;
-      padding: 10px;
-      border: 0;
-      border-radius: 10px;
-      font-size: 15px;
+      min-width: 180px;
+      margin: 0;
+      background: white;
+      color: #111827;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
     }
 
     .hero {
-      max-width: 800px;
-      margin: 50px auto 0;
+      max-width: 900px;
+      margin: 55px auto 0;
       text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 7vw, 58px);
-      line-height: 1.05;
-      margin: 0 0 18px;
-    }
-
-    .hero p {
-      color: #dbeafe;
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 680px;
-      margin: auto;
     }
 
     .badge {
       display: inline-block;
-      padding: 8px 14px;
-      border-radius: 50px;
-      background: rgba(255,255,255,.12);
-      margin-bottom: 18px;
-      font-size: 14px;
+      background: rgba(255,255,255,.15);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 17px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.05;
+      margin: 25px 0 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.5;
+      color: #dbeafe;
+      max-width: 700px;
+      margin: auto;
     }
 
     .container {
       max-width: 900px;
-      margin: -28px auto 50px;
+      margin: -25px auto 40px;
       padding: 0 16px;
       position: relative;
     }
@@ -119,24 +110,19 @@
       background: white;
       padding: 28px;
       border-radius: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 12px 35px rgba(15,23,42,.08);
+      margin-bottom: 22px;
+      box-shadow: 0 10px 35px rgba(15,23,42,.10);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 18px;
-    }
-
-    .full {
-      grid-column: 1 / -1;
+    h2 {
+      margin-top: 0;
+      font-size: 28px;
     }
 
     label {
       display: block;
-      font-weight: bold;
-      margin-top: 16px;
+      font-weight: 700;
+      margin-top: 17px;
       margin-bottom: 7px;
     }
 
@@ -145,159 +131,150 @@
     select {
       width: 100%;
       padding: 14px;
-      border: 1px solid #dbe2ea;
+      border: 1px solid #d5dbe5;
       border-radius: 11px;
       font-size: 16px;
       background: white;
     }
 
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid #93c5fd;
+      border-color: #2563eb;
+    }
+
     textarea {
-      min-height: 115px;
+      min-height: 110px;
       resize: vertical;
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 10px;
     }
 
     button {
       width: 100%;
       padding: 16px;
       border: 0;
-      border-radius: 11px;
-      background: #2563eb;
+      border-radius: 12px;
       color: white;
       font-size: 17px;
-      font-weight: bold;
-      margin-top: 20px;
+      font-weight: 700;
+      margin-top: 22px;
       cursor: pointer;
     }
 
-    button:hover {
+    .primary {
+      background: #2563eb;
+    }
+
+    .primary:hover {
       background: #1d4ed8;
     }
 
-    .dark-button {
-      background: #111827;
-    }
-
-    .dark-button:hover {
-      background: #020617;
-    }
-
-    .green-button {
+    .pdf-btn {
       background: #059669;
     }
 
-    .green-button:hover {
-      background: #047857;
-    }
-
-    .secondary-button {
+    .letter-btn {
       background: #475569;
     }
 
-    .secondary-button:hover {
-      background: #334155;
+    .payment-btn {
+      background: #2563eb;
     }
 
     .small {
-      text-align: center;
       color: #64748b;
       font-size: 14px;
+      text-align: center;
       line-height: 1.5;
     }
 
-    #result {
+    .result {
       display: none;
     }
 
     .cv {
-      background: white;
-      border: 1px solid #dbe2ea;
+      border: 1px solid #dbe1ea;
       padding: 30px;
-      border-radius: 14px;
+      background: white;
+      border-radius: 10px;
     }
 
-    .cv h1 {
-      margin: 0 0 7px;
-      font-size: 32px;
+    .cv-name {
+      font-size: 34px;
+      margin-bottom: 5px;
     }
 
-    .cv h2 {
-      color: #1d4ed8;
-      margin: 8px 0 10px;
+    .cv-job {
+      color: #2563eb;
+      margin-top: 5px;
     }
 
     .cv h3 {
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #dbe1ea;
       padding-bottom: 7px;
-      margin-top: 25px;
+      margin-top: 28px;
     }
 
     .cv p {
       white-space: pre-line;
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .letter {
-      margin-top: 25px;
-      border: 1px solid #dbe2ea;
-      padding: 25px;
-      border-radius: 14px;
-      line-height: 1.7;
-      white-space: pre-line;
-      background: #fff;
+      line-height: 1.6;
     }
 
     .payment {
       background: #eff6ff;
       padding: 22px;
-      border-radius: 14px;
+      border-radius: 15px;
+      margin-top: 22px;
       text-align: center;
-      margin-top: 25px;
     }
 
     .price {
-      font-size: 35px;
-      font-weight: 900;
-      margin: 12px 0;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 15px 0;
     }
 
-    .notice {
+    .letter {
       display: none;
-      margin-top: 12px;
-      padding: 13px;
+      margin-top: 25px;
+      padding: 28px;
+      border: 1px solid #dbe1ea;
       border-radius: 10px;
-      background: #ecfdf5;
-      color: #065f46;
-      font-weight: bold;
+      background: white;
+      line-height: 1.7;
+      white-space: pre-line;
     }
 
-    footer {
-      text-align: center;
-      color: #64748b;
-      padding: 10px 16px 35px;
-    }
-
-    @media (max-width: 700px) {
-      .grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 650px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .full {
-        grid-column: auto;
+      .logo {
+        text-align: center;
       }
 
-      .actions {
+      #language {
+        width: 100%;
+      }
+
+      .phone-row {
         grid-template-columns: 1fr;
       }
 
       .card {
-        padding: 22px;
+        padding: 20px;
+      }
+
+      .cv {
+        padding: 20px;
       }
     }
 
@@ -307,12 +284,11 @@
       }
 
       header,
-      .form-card,
+      #formCard,
       .payment,
-      .actions,
-      footer,
-      .letter-title,
-      .letter-actions {
+      .letter-btn,
+      .pdf-btn,
+      .small {
         display: none !important;
       }
 
@@ -326,8 +302,12 @@
         padding: 0;
       }
 
+      .result {
+        display: block !important;
+      }
+
       .cv {
-        border: 0;
+        border: none;
       }
     }
   </style>
@@ -336,975 +316,585 @@
 <body>
 
 <header>
-  <div class="top">
+  <div class="header-inner">
+    <div class="logo">CVSmart AI</div>
 
-    <div class="logo">
-      CVSmart AI
-    </div>
-
-    <select
-      id="uiLanguage"
-      class="language-selector"
-      onchange="changeLanguage()"
-    >
-      <option value="en">🇬🇧 English</option>
-      <option value="it">🇮🇹 Italiano</option>
+    <select id="language" onchange="changeLanguage()">
       <option value="ro">🇷🇴 Română</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="en">🇬🇧 English</option>
       <option value="es">🇪🇸 Español</option>
       <option value="de">🇩🇪 Deutsch</option>
     </select>
-
   </div>
 
   <div class="hero">
-
     <div class="badge" id="badge">
-      🤖 AI-powered CV builder
+      🤖 Generator CV cu AI
     </div>
 
     <h1 id="heroTitle">
-      Create a professional CV in minutes
+      Creează un CV profesional în câteva minute
     </h1>
 
     <p id="heroText">
-      Build a modern CV and prepare your application for the job you want.
+      Construiește un CV modern și pregătește-ți candidatura pentru jobul dorit.
     </p>
-
   </div>
 </header>
 
-<main class="container">
+<div class="container">
 
-<section class="card form-card">
+  <div class="card" id="formCard">
 
-  <h2 id="formTitle">
-    🚀 Build your CV
-  </h2>
+    <h2 id="formTitle">🚀 Creează-ți CV-ul</h2>
 
-  <p class="small" id="formIntro">
-    Enter your information and preview your CV before payment.
-  </p>
+    <p class="small" id="formDescription">
+      Completează informațiile și verifică CV-ul înainte de plată.
+    </p>
 
-  <div class="grid">
+    <label id="nameLabel">Nume și prenume</label>
+    <input id="name" placeholder="Ex: Ion Popescu">
 
-    <div>
-      <label id="nameLabel">Full name</label>
-      <input
-        id="name"
-        placeholder="e.g. John Smith"
-      >
-    </div>
+    <label id="emailLabel">Email</label>
+    <input id="email" type="email" placeholder="Ex: ion@email.com">
 
-    <div>
-      <label id="emailLabel">Email</label>
-      <input
-        id="email"
-        type="email"
-        placeholder="e.g. john@email.com"
-      >
-    </div>
+    <label id="phoneLabel">Telefon</label>
 
-    <div>
-      <label id="phoneLabel">Phone</label>
-      <input
-        id="phone"
-        placeholder="+39 ..."
-      >
-    </div>
-
-    <div>
-      <label id="locationLabel">City / Country</label>
-      <input
-        id="location"
-        placeholder="e.g. Milan, Italy"
-      >
-    </div>
-
-    <div class="full">
-      <label id="jobLabel">Target job</label>
-      <input
-        id="job"
-        placeholder="e.g. Electrician, Driver, Chef"
-      >
-    </div>
-
-    <div class="full">
-
-      <label id="experienceLabel">
-        Professional experience
-      </label>
-
-      <textarea
-        id="experience"
-        placeholder="Write your professional experience..."
-      ></textarea>
-
-      <button
-        class="dark-button"
-        onclick="improveWithAI()"
-      >
-        ✨
-        <span id="aiButtonText">
-          Improve with AI
-        </span>
-      </button>
-
-      <div id="aiNotice" class="notice"></div>
-
-    </div>
-
-    <div class="full">
-
-      <label id="educationLabel">
-        Education
-      </label>
-
-      <textarea
-        id="education"
-        placeholder="e.g. Technical high school, 2018"
-      ></textarea>
-
-    </div>
-
-    <div class="full">
-
-      <label id="skillsLabel">
-        Skills
-      </label>
-
-      <textarea
-        id="skills"
-        placeholder="e.g. teamwork, Excel, driving licence B..."
-      ></textarea>
-
-    </div>
-
-    <div class="full">
-
-      <label id="languagesLabel">
-        Languages
-      </label>
-
-      <input
-        id="languages"
-        placeholder="e.g. English - intermediate"
-      >
-
-    </div>
-
-    <div class="full">
-
-      <label id="cvLanguageLabel">
-        CV language
-      </label>
-
-      <select id="language">
-
-        <option value="English">
-          🇬🇧 English
-        </option>
-
-        <option value="Italian">
-          🇮🇹 Italiano
-        </option>
-
-        <option value="Romanian">
-          🇷🇴 Română
-        </option>
-
-        <option value="Spanish">
-          🇪🇸 Español
-        </option>
-
-        <option value="German">
-          🇩🇪 Deutsch
-        </option>
-
+    <div class="phone-row">
+      <select id="country" onchange="updatePrefix()">
+        <option value="+40">🇷🇴 România (+40)</option>
+        <option value="+39">🇮🇹 Italia (+39)</option>
+        <option value="+34">🇪🇸 Spania (+34)</option>
+        <option value="+49">🇩🇪 Germania (+49)</option>
+        <option value="+44">🇬🇧 Regatul Unit (+44)</option>
+        <option value="+33">🇫🇷 Franța (+33)</option>
+        <option value="+43">🇦🇹 Austria (+43)</option>
+        <option value="+32">🇧🇪 Belgia (+32)</option>
+        <option value="+31">🇳🇱 Țările de Jos (+31)</option>
+        <option value="+351">🇵🇹 Portugalia (+351)</option>
+        <option value="+41">🇨🇭 Elveția (+41)</option>
+        <option value="+1">🇺🇸 SUA / Canada (+1)</option>
       </select>
 
+      <input id="phone"
+        type="tel"
+        placeholder="Ex: 712 345 678">
     </div>
 
-  </div>
+    <label id="locationLabel">Oraș / Țară</label>
+    <input id="location" placeholder="Ex: Roma, Italia">
 
-  <button onclick="generateCV()">
+    <label id="jobLabel">Jobul dorit</label>
+    <input id="job" placeholder="Ex: Electrician">
 
-    ✨
-    <span id="generateText">
-      Generate CV
-    </span>
+    <label id="experienceLabel">Experiență profesională</label>
+    <textarea id="experience"
+      placeholder="Scrie unde ai lucrat și ce responsabilități ai avut..."></textarea>
 
-  </button>
+    <label id="educationLabel">Studii</label>
+    <textarea id="education"
+      placeholder="Ex: Liceu / Universitate..."></textarea>
 
-  <p class="small" id="previewNote">
-    You can check your information before payment.
-  </p>
+    <label id="skillsLabel">Competențe</label>
+    <textarea id="skills"
+      placeholder="Ex: lucru în echipă, permis categoria B..."></textarea>
 
-</section>
+    <label id="languagesLabel">Limbi străine</label>
+    <input id="languages"
+      placeholder="Ex: Italiană - avansat, Engleză - mediu">
 
-
-<section id="result" class="card">
-
-  <h2 id="previewTitle">
-    📄 CV Preview
-  </h2>
-
-  <div class="cv" id="cvDocument">
-
-    <h1 id="cvName"></h1>
-
-    <p id="cvContact"></p>
-
-    <h2 id="cvJob"></h2>
-
-    <h3 id="cvExperienceTitle">
-      Professional experience
-    </h3>
-
-    <p id="cvExperience"></p>
-
-    <h3 id="cvEducationTitle">
-      Education
-    </h3>
-
-    <p id="cvEducation"></p>
-
-    <h3 id="cvSkillsTitle">
-      Skills
-    </h3>
-
-    <p id="cvSkills"></p>
-
-    <h3 id="cvLanguagesTitle">
-      Languages
-    </h3>
-
-    <p id="cvLanguages"></p>
-
-  </div>
-
-
-  <div class="actions">
-
-    <button
-      class="green-button"
-      onclick="printCV()"
-    >
-      📄
-      <span id="pdfButtonText">
-        Save CV as PDF
-      </span>
+    <button class="primary" onclick="generateCV()" id="generateButton">
+      ✨ Generează CV-ul
     </button>
 
-    <button
-      class="secondary-button"
-      onclick="generateLetter()"
-    >
-      ✉️
-      <span id="letterButtonText">
-        Generate cover letter
-      </span>
-    </button>
+    <p class="small" id="previewText">
+      Poți verifica informațiile înainte de plată.
+    </p>
 
   </div>
 
+  <div id="result" class="card result">
 
-  <div id="letterSection" style="display:none;">
+    <h2 id="previewTitle">📄 Previzualizare CV</h2>
 
-    <h2
-      class="letter-title"
-      id="letterTitle"
-      style="margin-top:30px;"
-    >
-      ✉️ Cover Letter
-    </h2>
+    <div class="cv">
 
-    <div
-      class="letter"
-      id="coverLetter"
-    ></div>
+      <h1 class="cv-name" id="cvName"></h1>
 
-    <div class="letter-actions">
+      <p id="cvContact"></p>
 
-      <button
-        class="green-button"
-        onclick="printLetter()"
-      >
-        📄
-        <span id="letterPdfText">
-          Save cover letter as PDF
-        </span>
+      <h2 class="cv-job" id="cvJob"></h2>
+
+      <h3 id="experienceTitle">Experiență profesională</h3>
+      <p id="cvExperience"></p>
+
+      <h3 id="educationTitle">Studii</h3>
+      <p id="cvEducation"></p>
+
+      <h3 id="skillsTitle">Competențe</h3>
+      <p id="cvSkills"></p>
+
+      <h3 id="languagesTitle">Limbi străine</h3>
+      <p id="cvLanguages"></p>
+
+    </div>
+
+    <button class="pdf-btn" onclick="savePDF()" id="pdfButton">
+      📄 Salvează CV ca PDF
+    </button>
+
+    <button class="letter-btn" onclick="generateLetter()" id="letterButton">
+      ✉️ Generează scrisoare de intenție
+    </button>
+
+    <div class="letter" id="letter"></div>
+
+    <div class="payment">
+
+      <h2 id="paymentTitle">
+        💳 CV-ul tău este gata
+      </h2>
+
+      <p id="paymentText">
+        Descarcă CV-ul profesional și primește scrisoarea de intenție.
+      </p>
+
+      <div class="price">4,99 €</div>
+
+      <button class="payment-btn"
+        onclick="payment()"
+        id="paymentButton">
+        🔒 Continuă la plată
       </button>
 
+      <p class="small" id="secureText">
+        Plata este procesată securizat prin Stripe.
+      </p>
+
     </div>
 
   </div>
 
-
-  <div class="payment">
-
-    <h2 id="readyTitle">
-      💳 Your CV is ready
-    </h2>
-
-    <p id="readyText">
-      Download your professional CV and receive a cover letter.
-    </p>
-
-    <div class="price">
-      4,99 €
-    </div>
-
-    <button onclick="payment()">
-
-      🔒
-      <span id="paymentText">
-        Continue to secure payment
-      </span>
-
-    </button>
-
-    <p class="small" id="secureText">
-      Payment is processed securely through Stripe.
-    </p>
-
-  </div>
-
-</section>
-
-</main>
-
-<footer>
-  © 2026 CVSmart AI
-</footer>
-
+</div>
 
 <script>
 
 const translations = {
 
-  en: {
-    badge:"🤖 AI-powered CV builder",
-    heroTitle:"Create a professional CV in minutes",
-    heroText:"Build a modern CV and prepare your application for the job you want.",
-    formTitle:"🚀 Build your CV",
-    formIntro:"Enter your information and preview your CV before payment.",
-    name:"Full name",
-    email:"Email",
-    phone:"Phone",
-    location:"City / Country",
-    job:"Target job",
-    experience:"Professional experience",
-    education:"Education",
-    skills:"Skills",
-    languages:"Languages",
-    cvLanguage:"CV language",
-    ai:"Improve with AI",
-    generate:"Generate CV",
-    previewNote:"You can check your information before payment.",
-    preview:"📄 CV Preview",
-    experienceTitle:"Professional experience",
-    educationTitle:"Education",
-    skillsTitle:"Skills",
-    languagesTitle:"Languages",
-    pdf:"Save CV as PDF",
-    letter:"Generate cover letter",
-    letterTitle:"✉️ Cover Letter",
-    letterPdf:"Save cover letter as PDF",
-    ready:"💳 Your CV is ready",
-    readyText:"Download your professional CV and receive a cover letter.",
-    payment:"Continue to secure payment",
-    secure:"Payment is processed securely through Stripe.",
-    required:"Please enter your full name and target job.",
-    aiMessage:"AI preparation completed. Your experience has been structured."
+  ro: {
+    badge: "🤖 Generator CV cu AI",
+    heroTitle: "Creează un CV profesional în câteva minute",
+    heroText: "Construiește un CV modern și pregătește-ți candidatura pentru jobul dorit.",
+    formTitle: "🚀 Creează-ți CV-ul",
+    formDescription: "Completează informațiile și verifică CV-ul înainte de plată.",
+    name: "Nume și prenume",
+    email: "Email",
+    phone: "Telefon",
+    location: "Oraș / Țară",
+    job: "Jobul dorit",
+    experience: "Experiență profesională",
+    education: "Studii",
+    skills: "Competențe",
+    languages: "Limbi străine",
+    generate: "✨ Generează CV-ul",
+    previewText: "Poți verifica informațiile înainte de plată.",
+    preview: "📄 Previzualizare CV",
+    experienceTitle: "Experiență profesională",
+    educationTitle: "Studii",
+    skillsTitle: "Competențe",
+    languagesTitle: "Limbi străine",
+    pdf: "📄 Salvează CV ca PDF",
+    letterButton: "✉️ Generează scrisoare de intenție",
+    paymentTitle: "💳 CV-ul tău este gata",
+    paymentText: "Descarcă CV-ul profesional și primește scrisoarea de intenție.",
+    pay: "🔒 Continuă la plată",
+    secure: "Plata este procesată securizat prin Stripe.",
+    required: "Te rugăm să completezi numele și jobul dorit.",
+    letterTitle: "Scrisoare de intenție",
+    letterIntro: "Stimate angajator,"
   },
 
   it: {
-    badge:"🤖 Generatore CV con AI",
-    heroTitle:"Crea un CV professionale in pochi minuti",
-    heroText:"Crea un CV moderno e prepara la tua candidatura per il lavoro che desideri.",
-    formTitle:"🚀 Crea il tuo CV",
-    formIntro:"Inserisci i tuoi dati e controlla il CV prima del pagamento.",
-    name:"Nome e cognome",
-    email:"Email",
-    phone:"Telefono",
-    location:"Città / Paese",
-    job:"Lavoro desiderato",
-    experience:"Esperienza professionale",
-    education:"Istruzione",
-    skills:"Competenze",
-    languages:"Lingue",
-    cvLanguage:"Lingua del CV",
-    ai:"Migliora con AI",
-    generate:"Genera CV",
-    previewNote:"Puoi controllare i dati prima del pagamento.",
-    preview:"📄 Anteprima CV",
-    experienceTitle:"Esperienza professionale",
-    educationTitle:"Istruzione",
-    skillsTitle:"Competenze",
-    languagesTitle:"Lingue",
-    pdf:"Salva CV come PDF",
-    letter:"Genera lettera di presentazione",
-    letterTitle:"✉️ Lettera di presentazione",
-    letterPdf:"Salva lettera come PDF",
-    ready:"💳 Il tuo CV è pronto",
-    readyText:"Scarica il CV professionale e ricevi una lettera di presentazione.",
-    payment:"Continua al pagamento sicuro",
-    secure:"Il pagamento è gestito in modo sicuro tramite Stripe.",
-    required:"Inserisci nome e lavoro desiderato.",
-    aiMessage:"Preparazione AI completata. La tua esperienza è stata strutturata."
+    badge: "🤖 Generatore CV con AI",
+    heroTitle: "Crea un CV professionale in pochi minuti",
+    heroText: "Crea un CV moderno e prepara la tua candidatura per il lavoro che desideri.",
+    formTitle: "🚀 Crea il tuo CV",
+    formDescription: "Inserisci le informazioni e controlla il CV prima del pagamento.",
+    name: "Nome e cognome",
+    email: "Email",
+    phone: "Telefono",
+    location: "Città / Paese",
+    job: "Lavoro desiderato",
+    experience: "Esperienza professionale",
+    education: "Istruzione",
+    skills: "Competenze",
+    languages: "Lingue",
+    generate: "✨ Genera CV",
+    previewText: "Puoi controllare le informazioni prima del pagamento.",
+    preview: "📄 Anteprima CV",
+    experienceTitle: "Esperienza professionale",
+    educationTitle: "Istruzione",
+    skillsTitle: "Competenze",
+    languagesTitle: "Lingue",
+    pdf: "📄 Salva CV come PDF",
+    letterButton: "✉️ Genera lettera di presentazione",
+    paymentTitle: "💳 Il tuo CV è pronto",
+    paymentText: "Scarica il CV professionale e ricevi la lettera di presentazione.",
+    pay: "🔒 Continua al pagamento",
+    secure: "Il pagamento è elaborato in modo sicuro tramite Stripe.",
+    required: "Inserisci nome e lavoro desiderato.",
+    letterTitle: "Lettera di presentazione",
+    letterIntro: "Gentile responsabile delle assunzioni,"
   },
 
-  ro: {
-    badge:"🤖 Generator de CV cu AI",
-    heroTitle:"Creează un CV profesional în câteva minute",
-    heroText:"Creează un CV modern și pregătește candidatura pentru jobul dorit.",
-    formTitle:"🚀 Creează-ți CV-ul",
-    formIntro:"Completează datele și verifică CV-ul înainte de plată.",
-    name:"Nume și prenume",
-    email:"Email",
-    phone:"Telefon",
-    location:"Oraș / Țară",
-    job:"Jobul dorit",
-    experience:"Experiență profesională",
-    education:"Studii",
-    skills:"Competențe",
-    languages:"Limbi străine",
-    cvLanguage:"Limba CV-ului",
-    ai:"Îmbunătățește cu AI",
-    generate:"Generează CV",
-    previewNote:"Poți verifica informațiile înainte de plată.",
-    preview:"📄 Previzualizare CV",
-    experienceTitle:"Experiență profesională",
-    educationTitle:"Studii",
-    skillsTitle:"Competențe",
-    languagesTitle:"Limbi străine",
-    pdf:"Salvează CV-ul ca PDF",
-    letter:"Generează scrisoare de intenție",
-    letterTitle:"✉️ Scrisoare de intenție",
-    letterPdf:"Salvează scrisoarea ca PDF",
-    ready:"💳 CV-ul tău este gata",
-    readyText:"Descarcă CV-ul profesional și primește o scrisoare de intenție.",
-    payment:"Continuă la plata securizată",
-    secure:"Plata este procesată securizat prin Stripe.",
-    required:"Completează numele și jobul dorit.",
-    aiMessage:"Pregătirea AI este gata. Experiența ta a fost structurată."
+  en: {
+    badge: "🤖 AI-powered CV builder",
+    heroTitle: "Create a professional CV in minutes",
+    heroText: "Build a modern CV and prepare your application for the job you want.",
+    formTitle: "🚀 Build your CV",
+    formDescription: "Enter your information and preview your CV before payment.",
+    name: "Full name",
+    email: "Email",
+    phone: "Phone",
+    location: "City / Country",
+    job: "Desired job",
+    experience: "Professional experience",
+    education: "Education",
+    skills: "Skills",
+    languages: "Languages",
+    generate: "✨ Generate CV",
+    previewText: "You can check your information before payment.",
+    preview: "📄 CV Preview",
+    experienceTitle: "Professional experience",
+    educationTitle: "Education",
+    skillsTitle: "Skills",
+    languagesTitle: "Languages",
+    pdf: "📄 Save CV as PDF",
+    letterButton: "✉️ Generate cover letter",
+    paymentTitle: "💳 Your CV is ready",
+    paymentText: "Download your professional CV and receive a cover letter.",
+    pay: "🔒 Continue to payment",
+    secure: "Payment is securely processed through Stripe.",
+    required: "Please enter your name and desired job.",
+    letterTitle: "Cover Letter",
+    letterIntro: "Dear Hiring Manager,"
   },
 
   es: {
-    badge:"🤖 Generador de CV con IA",
-    heroTitle:"Crea un CV profesional en minutos",
-    heroText:"Crea un CV moderno y prepara tu candidatura para el trabajo que deseas.",
-    formTitle:"🚀 Crea tu CV",
-    formIntro:"Introduce tus datos y revisa el CV antes del pago.",
-    name:"Nombre y apellidos",
-    email:"Email",
-    phone:"Teléfono",
-    location:"Ciudad / País",
-    job:"Trabajo deseado",
-    experience:"Experiencia profesional",
-    education:"Estudios",
-    skills:"Competencias",
-    languages:"Idiomas",
-    cvLanguage:"Idioma del CV",
-    ai:"Mejorar con IA",
-    generate:"Generar CV",
-    previewNote:"Puedes revisar tus datos antes del pago.",
-    preview:"📄 Vista previa del CV",
-    experienceTitle:"Experiencia profesional",
-    educationTitle:"Estudios",
-    skillsTitle:"Competencias",
-    languagesTitle:"Idiomas",
-    pdf:"Guardar CV como PDF",
-    letter:"Generar carta de presentación",
-    letterTitle:"✉️ Carta de presentación",
-    letterPdf:"Guardar carta como PDF",
-    ready:"💳 Tu CV está listo",
-    readyText:"Descarga tu CV profesional y recibe una carta de presentación.",
-    payment:"Continuar al pago seguro",
-    secure:"El pago se procesa de forma segura mediante Stripe.",
-    required:"Introduce tu nombre y trabajo deseado.",
-    aiMessage:"Preparación de IA completada. Tu experiencia ha sido estructurada."
+    badge: "🤖 Generador de CV con IA",
+    heroTitle: "Crea un CV profesional en minutos",
+    heroText: "Crea un CV moderno y prepara tu candidatura para el trabajo que deseas.",
+    formTitle: "🚀 Crea tu CV",
+    formDescription: "Introduce tus datos y revisa tu CV antes del pago.",
+    name: "Nombre y apellidos",
+    email: "Email",
+    phone: "Teléfono",
+    location: "Ciudad / País",
+    job: "Trabajo deseado",
+    experience: "Experiencia profesional",
+    education: "Educación",
+    skills: "Habilidades",
+    languages: "Idiomas",
+    generate: "✨ Generar CV",
+    previewText: "Puedes revisar tus datos antes del pago.",
+    preview: "📄 Vista previa del CV",
+    experienceTitle: "Experiencia profesional",
+    educationTitle: "Educación",
+    skillsTitle: "Habilidades",
+    languagesTitle: "Idiomas",
+    pdf: "📄 Guardar CV como PDF",
+    letterButton: "✉️ Generar carta de presentación",
+    paymentTitle: "💳 Tu CV está listo",
+    paymentText: "Descarga tu CV profesional y recibe una carta de presentación.",
+    pay: "🔒 Continuar al pago",
+    secure: "El pago se procesa de forma segura mediante Stripe.",
+    required: "Introduce tu nombre y el trabajo deseado.",
+    letterTitle: "Carta de presentación",
+    letterIntro: "Estimado responsable de contratación,"
   },
 
   de: {
-    badge:"🤖 KI-CV-Generator",
-    heroTitle:"Erstelle in wenigen Minuten einen professionellen Lebenslauf",
-    heroText:"Erstelle einen modernen Lebenslauf und bereite deine Bewerbung für deinen Wunschjob vor.",
-    formTitle:"🚀 Lebenslauf erstellen",
-    formIntro:"Gib deine Daten ein und prüfe deinen Lebenslauf vor der Zahlung.",
-    name:"Vor- und Nachname",
-    email:"E-Mail",
-    phone:"Telefon",
-    location:"Stadt / Land",
-    job:"Wunschjob",
-    experience:"Berufserfahrung",
-    education:"Ausbildung",
-    skills:"Fähigkeiten",
-    languages:"Sprachen",
-    cvLanguage:"CV-Sprache",
-    ai:"Mit KI verbessern",
-    generate:"CV erstellen",
-    previewNote:"Du kannst deine Angaben vor der Zahlung prüfen.",
-    preview:"📄 CV-Vorschau",
-    experienceTitle:"Berufserfahrung",
-    educationTitle:"Ausbildung",
-    skillsTitle:"Fähigkeiten",
-    languagesTitle:"Sprachen",
-    pdf:"CV als PDF speichern",
-    letter:"Anschreiben erstellen",
-    letterTitle:"✉️ Anschreiben",
-    letterPdf:"Anschreiben als PDF speichern",
-    ready:"💳 Dein CV ist bereit",
-    readyText:"Lade deinen professionellen CV herunter und erhalte ein Anschreiben.",
-    payment:"Weiter zur sicheren Zahlung",
-    secure:"Die Zahlung wird sicher über Stripe verarbeitet.",
-    required:"Bitte Name und Wunschjob eingeben.",
-    aiMessage:"KI-Vorbereitung abgeschlossen. Deine Erfahrung wurde strukturiert."
+    badge: "🤖 KI-gestützter Lebenslauf-Generator",
+    heroTitle: "Erstelle in wenigen Minuten einen professionellen Lebenslauf",
+    heroText: "Erstelle einen modernen Lebenslauf und bereite deine Bewerbung für deinen Wunschjob vor.",
+    formTitle: "🚀 Lebenslauf erstellen",
+    formDescription: "Gib deine Informationen ein und überprüfe deinen Lebenslauf vor der Zahlung.",
+    name: "Vor- und Nachname",
+    email: "E-Mail",
+    phone: "Telefon",
+    location: "Stadt / Land",
+    job: "Gewünschter Beruf",
+    experience: "Berufserfahrung",
+    education: "Ausbildung",
+    skills: "Fähigkeiten",
+    languages: "Sprachen",
+    generate: "✨ Lebenslauf erstellen",
+    previewText: "Du kannst deine Angaben vor der Zahlung überprüfen.",
+    preview: "📄 Lebenslauf-Vorschau",
+    experienceTitle: "Berufserfahrung",
+    educationTitle: "Ausbildung",
+    skillsTitle: "Fähigkeiten",
+    languagesTitle: "Sprachen",
+    pdf: "📄 Lebenslauf als PDF speichern",
+    letterButton: "✉️ Anschreiben erstellen",
+    paymentTitle: "💳 Dein Lebenslauf ist fertig",
+    paymentText: "Lade deinen professionellen Lebenslauf herunter und erhalte ein Anschreiben.",
+    pay: "🔒 Zur Zahlung",
+    secure: "Die Zahlung wird sicher über Stripe verarbeitet.",
+    required: "Bitte gib deinen Namen und den gewünschten Beruf ein.",
+    letterTitle: "Anschreiben",
+    letterIntro: "Sehr geehrte Damen und Herren,"
   }
 
 };
-
-
-let currentLanguage = "en";
-
 
 function getValue(id) {
   return document.getElementById(id).value.trim();
 }
 
+function updatePrefix() {
+  const country = document.getElementById("country").value;
+  const phone = document.getElementById("phone");
 
-function setText(id, text) {
-  const element = document.getElementById(id);
-
-  if (element) {
-    element.textContent = text;
-  }
+  phone.placeholder = country + " 123 456 789";
 }
-
 
 function changeLanguage() {
 
-  currentLanguage =
-    document.getElementById("uiLanguage").value;
+  const lang = document.getElementById("language").value;
+  const t = translations[lang];
 
-  const t =
-    translations[currentLanguage];
+  document.documentElement.lang = lang;
 
-  document.documentElement.lang =
-    currentLanguage;
+  document.getElementById("badge").textContent = t.badge;
+  document.getElementById("heroTitle").textContent = t.heroTitle;
+  document.getElementById("heroText").textContent = t.heroText;
 
-  setText("badge", t.badge);
-  setText("heroTitle", t.heroTitle);
-  setText("heroText", t.heroText);
+  document.getElementById("formTitle").textContent = t.formTitle;
+  document.getElementById("formDescription").textContent = t.formDescription;
 
-  setText("formTitle", t.formTitle);
-  setText("formIntro", t.formIntro);
+  document.getElementById("nameLabel").textContent = t.name;
+  document.getElementById("emailLabel").textContent = t.email;
+  document.getElementById("phoneLabel").textContent = t.phone;
+  document.getElementById("locationLabel").textContent = t.location;
+  document.getElementById("jobLabel").textContent = t.job;
+  document.getElementById("experienceLabel").textContent = t.experience;
+  document.getElementById("educationLabel").textContent = t.education;
+  document.getElementById("skillsLabel").textContent = t.skills;
+  document.getElementById("languagesLabel").textContent = t.languages;
 
-  setText("nameLabel", t.name);
-  setText("emailLabel", t.email);
-  setText("phoneLabel", t.phone);
-  setText("locationLabel", t.location);
-  setText("jobLabel", t.job);
+  document.getElementById("generateButton").textContent = t.generate;
+  document.getElementById("previewText").textContent = t.previewText;
 
-  setText("experienceLabel", t.experience);
-  setText("educationLabel", t.education);
-  setText("skillsLabel", t.skills);
-  setText("languagesLabel", t.languages);
-  setText("cvLanguageLabel", t.cvLanguage);
+  document.getElementById("previewTitle").textContent = t.preview;
+  document.getElementById("experienceTitle").textContent = t.experienceTitle;
+  document.getElementById("educationTitle").textContent = t.educationTitle;
+  document.getElementById("skillsTitle").textContent = t.skillsTitle;
+  document.getElementById("languagesTitle").textContent = t.languagesTitle;
 
-  setText("aiButtonText", t.ai);
-  setText("generateText", t.generate);
+  document.getElementById("pdfButton").textContent = t.pdf;
+  document.getElementById("letterButton").textContent = t.letterButton;
 
-  setText("previewNote", t.previewNote);
-  setText("previewTitle", t.preview);
-
-  setText("cvExperienceTitle", t.experienceTitle);
-  setText("cvEducationTitle", t.educationTitle);
-  setText("cvSkillsTitle", t.skillsTitle);
-  setText("cvLanguagesTitle", t.languagesTitle);
-
-  setText("pdfButtonText", t.pdf);
-  setText("letterButtonText", t.letter);
-  setText("letterTitle", t.letterTitle);
-  setText("letterPdfText", t.letterPdf);
-
-  setText("readyTitle", t.ready);
-  setText("readyText", t.readyText);
-  setText("paymentText", t.payment);
-  setText("secureText", t.secure);
+  document.getElementById("paymentTitle").textContent = t.paymentTitle;
+  document.getElementById("paymentText").textContent = t.paymentText;
+  document.getElementById("paymentButton").textContent = t.pay;
+  document.getElementById("secureText").textContent = t.secure;
 }
-
-
-function improveWithAI() {
-
-  const experience =
-    getValue("experience");
-
-  const job =
-    getValue("job");
-
-  const notice =
-    document.getElementById("aiNotice");
-
-  const t =
-    translations[currentLanguage];
-
-  if (!experience) {
-
-    notice.textContent =
-      t.required;
-
-    notice.style.display =
-      "block";
-
-    return;
-  }
-
-  const sentences =
-    experience
-      .replace(/\s+/g, " ")
-      .split(/[.!?]+/)
-      .map(sentence => sentence.trim())
-      .filter(Boolean);
-
-  const improved =
-    sentences
-      .map(
-        sentence =>
-          "• " +
-          sentence.charAt(0).toUpperCase() +
-          sentence.slice(1)
-      )
-      .join("\n");
-
-  document.getElementById(
-    "experience"
-  ).value =
-    (job ? job + " – " : "") +
-    improved;
-
-  notice.textContent =
-    t.aiMessage;
-
-  notice.style.display =
-    "block";
-}
-
 
 function generateCV() {
 
-  const name =
-    getValue("name");
+  const name = getValue("name");
+  const email = getValue("email");
+  const phoneNumber = getValue("phone");
+  const countryPrefix = document.getElementById("country").value;
+  const location = getValue("location");
+  const job = getValue("job");
 
-  const job =
-    getValue("job");
-
-  const t =
-    translations[currentLanguage];
+  const lang = document.getElementById("language").value;
+  const t = translations[lang];
 
   if (!name || !job) {
-
     alert(t.required);
-
     return;
   }
 
-  document.getElementById(
-    "cvName"
-  ).textContent =
-    name;
+  document.getElementById("cvName").textContent = name;
 
-  document.getElementById(
-    "cvContact"
-  ).textContent =
-    [
-      getValue("email"),
-      getValue("phone"),
-      getValue("location")
-    ]
-    .filter(Boolean)
-    .join(" • ");
+  let phone = "";
 
-  document.getElementById(
-    "cvJob"
-  ).textContent =
-    job;
+  if (phoneNumber) {
+    phone = countryPrefix + " " + phoneNumber;
+  }
 
-  document.getElementById(
-    "cvExperience"
-  ).textContent =
+  document.getElementById("cvContact").textContent =
+    [email, phone, location]
+      .filter(Boolean)
+      .join(" • ");
+
+  document.getElementById("cvJob").textContent = job;
+
+  document.getElementById("cvExperience").textContent =
     getValue("experience") || "—";
 
-  document.getElementById(
-    "cvEducation"
-  ).textContent =
+  document.getElementById("cvEducation").textContent =
     getValue("education") || "—";
 
-  document.getElementById(
-    "cvSkills"
-  ).textContent =
+  document.getElementById("cvSkills").textContent =
     getValue("skills") || "—";
 
-  document.getElementById(
-    "cvLanguages"
-  ).textContent =
+  document.getElementById("cvLanguages").textContent =
     getValue("languages") || "—";
 
-  document.getElementById(
-    "result"
-  ).style.display =
-    "block";
+  document.getElementById("result").style.display = "block";
 
-  window.scrollTo({
-    top:
-      document.getElementById("result").offsetTop - 10,
-    behavior:"smooth"
+  document.getElementById("result").scrollIntoView({
+    behavior: "smooth"
   });
 }
 
+function savePDF() {
+  window.print();
+}
 
 function generateLetter() {
 
-  const name =
-    getValue("name");
+  const name = getValue("name");
+  const job = getValue("job");
+  const experience = getValue("experience");
+  const skills = getValue("skills");
 
-  const job =
-    getValue("job");
-
-  const experience =
-    getValue("experience");
-
-  const skills =
-    getValue("skills");
-
-  const language =
-    document.getElementById("language").value;
-
-  if (!name || !job) {
-
-    alert(
-      translations[currentLanguage].required
-    );
-
-    return;
-  }
+  const lang = document.getElementById("language").value;
+  const t = translations[lang];
 
   let letter = "";
 
-
-  if (language === "Italian") {
-
-    letter =
-`Gentile Responsabile delle Risorse Umane,
-
-mi chiamo ${name} e desidero candidarmi per la posizione di ${job}.
-
-La mia esperienza professionale comprende:
-${experience || "esperienza professionale nel settore."}
-
-Tra le mie principali competenze:
-${skills || "competenze professionali e capacità di lavorare in squadra."}
-
-Sono una persona motivata, seria e desiderosa di mettere le mie competenze a disposizione della vostra azienda.
-
-Sarei lieto/a di poter discutere personalmente della mia candidatura.
-
-Cordiali saluti,
-
-${name}`;
-
-  } else if (language === "Romanian") {
+  if (lang === "ro") {
 
     letter =
-`Stimată echipă de recrutare,
+`${t.letterIntro}
 
-Numele meu este ${name} și doresc să candidez pentru poziția de ${job}.
+Numele meu este ${name} și doresc să candidez pentru postul de ${job}.
 
-Experiența mea profesională include:
-${experience || "experiență profesională relevantă pentru acest domeniu."}
+Experiența mea profesională:
+${experience || "Experiență profesională disponibilă la cerere."}
 
-Printre principalele mele competențe se numără:
-${skills || "competențe profesionale și capacitatea de a lucra în echipă."}
+Competențele mele:
+${skills || "Competențe profesionale relevante pentru postul dorit."}
 
-Sunt o persoană serioasă, motivată și dornică să îmi folosesc experiența în cadrul companiei dumneavoastră.
+Sunt o persoană serioasă, motivată și dornică să contribui în cadrul echipei dumneavoastră.
 
-Vă mulțumesc pentru timpul acordat și aștept cu interes oportunitatea unui interviu.
+Vă mulțumesc pentru timpul acordat și aștept cu interes posibilitatea unui interviu.
 
 Cu stimă,
-
 ${name}`;
 
-  } else if (language === "Spanish") {
+  } else if (lang === "it") {
 
     letter =
-`Estimado equipo de selección,
+`${t.letterIntro}
+
+Mi chiamo ${name} e desidero candidarmi per la posizione di ${job}.
+
+La mia esperienza professionale:
+${experience || "Esperienza professionale disponibile su richiesta."}
+
+Le mie competenze:
+${skills || "Competenze professionali pertinenti alla posizione desiderata."}
+
+Sono una persona seria, motivata e desiderosa di contribuire al successo della vostra azienda.
+
+Grazie per la vostra attenzione. Rimango a disposizione per un colloquio.
+
+Cordiali saluti,
+${name}`;
+
+  } else if (lang === "en") {
+
+    letter =
+`${t.letterIntro}
+
+My name is ${name} and I would like to apply for the position of ${job}.
+
+Professional experience:
+${experience || "Professional experience available upon request."}
+
+Skills:
+${skills || "Relevant professional skills for the desired position."}
+
+I am a motivated, reliable and hardworking person who would be happy to contribute to your team.
+
+Thank you for considering my application. I would be pleased to discuss my application in an interview.
+
+Kind regards,
+${name}`;
+
+  } else if (lang === "es") {
+
+    letter =
+`${t.letterIntro}
 
 Mi nombre es ${name} y deseo presentar mi candidatura para el puesto de ${job}.
 
-Mi experiencia profesional incluye:
-${experience || "experiencia profesional relevante para este puesto."}
+Experiencia profesional:
+${experience || "Experiencia profesional disponible a petición."}
 
-Entre mis principales competencias se encuentran:
-${skills || "habilidades profesionales y capacidad para trabajar en equipo."}
+Habilidades:
+${skills || "Habilidades profesionales relevantes para el puesto deseado."}
 
-Soy una persona responsable, motivada y preparada para aportar mis conocimientos a su empresa.
+Soy una persona responsable, motivada y con ganas de contribuir al éxito de su equipo.
 
-Gracias por considerar mi candidatura. Estaré encantado/a de participar en una entrevista.
+Gracias por considerar mi candidatura. Estaría encantado de poder realizar una entrevista.
 
 Atentamente,
-
-${name}`;
-
-  } else if (language === "German") {
-
-    letter =
-`Sehr geehrtes Recruiting-Team,
-
-mein Name ist ${name} und ich möchte mich für die Position als ${job} bewerben.
-
-Meine berufliche Erfahrung umfasst:
-${experience || "relevante Berufserfahrung in diesem Bereich."}
-
-Zu meinen wichtigsten Fähigkeiten gehören:
-${skills || "fachliche Fähigkeiten und Teamfähigkeit."}
-
-Ich bin motiviert, zuverlässig und möchte meine Erfahrungen gerne in Ihr Unternehmen einbringen.
-
-Vielen Dank für Ihre Zeit und die Berücksichtigung meiner Bewerbung.
-
-Mit freundlichen Grüßen
-
 ${name}`;
 
   } else {
 
     letter =
-`Dear Hiring Manager,
+`${t.letterIntro}
 
-My name is ${name} and I would like to apply for the position of ${job}.
+Mein Name ist ${name} und ich möchte mich für die Position als ${job} bewerben.
 
-My professional experience includes:
-${experience || "relevant professional experience in this field."}
+Berufserfahrung:
+${experience || "Berufserfahrung auf Anfrage verfügbar."}
 
-My main skills include:
-${skills || "professional skills and the ability to work effectively in a team."}
+Fähigkeiten:
+${skills || "Relevante berufliche Fähigkeiten für die gewünschte Position."}
 
-I am motivated, reliable and eager to contribute my experience and skills to your company.
+Ich bin eine motivierte, zuverlässige und engagierte Person und würde mich freuen, Ihr Team zu unterstützen.
 
-Thank you for considering my application. I would be happy to discuss my application in an interview.
+Vielen Dank für Ihre Zeit und die Berücksichtigung meiner Bewerbung.
 
-Kind regards,
-
+Mit freundlichen Grüßen,
 ${name}`;
   }
 
+  const letterBox = document.getElementById("letter");
 
-  document.getElementById(
-    "coverLetter"
-  ).textContent =
-    letter;
+  letterBox.textContent =
+    t.letterTitle + "\n\n" + letter;
 
-  document.getElementById(
-    "letterSection"
-  ).style.display =
-    "block";
+  letterBox.style.display = "block";
 
-  document
-    .getElementById("letterSection")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+  letterBox.scrollIntoView({
+    behavior: "smooth"
+  });
 }
-
-
-/*
-  PDF CV
-  Folosește fereastra de print a dispozitivului.
-  Pe Android/iPhone poți alege "Save as PDF".
-*/
-
-function printCV() {
-
-  const original =
-    document.body.innerHTML;
-
-  const cv =
-    document.getElementById(
-      "cvDocument"
-    ).outerHTML;
-
-  document.body.innerHTML =
-    `
-    <div style="
-      max-width:800px;
-      margin:30px auto;
-      font-family:Arial,sans-serif;
-      color:#111827;
-    ">
-      ${cv}
-    </div>
-    `;
-
-  window.print();
-
-  document.body.innerHTML =
-    original;
-
-  location.reload();
-}
-
-
-/*
-  PDF SCRISOARE
-*/
-
-function printLetter() {
-
-  const original =
-    document.body.innerHTML;
-
-  const letter =
-    document.getElementById(
-      "coverLetter"
-    ).outerHTML;
-
-  const title =
-    translations[currentLanguage].letterTitle;
-
-  document.body.innerHTML =
-    `
-    <div style="
-      max-width:800px;
-      margin:30px auto;
-      font-family:Arial,sans-serif;
-      line-height:1.7;
-      color:#111827;
-    ">
-      <h1>${title}</h1>
-      ${letter}
-    </div>
-    `;
-
-  window.print();
-
-  document.body.innerHTML =
-    original;
-
-  location.reload();
-}
-
-
-/*
-  STRIPE
-*/
 
 function payment() {
+
+  /*
+    Stripe Payment Link.
+    Înlocuiește linkul cu Payment Link-ul tău activ
+    dacă îl schimbi în viitor.
+  */
 
   window.location.href =
     "https://buy.stripe.com/dRm9AT2zwgZVcwH4Gb5Vu00";
 }
 
-
+updatePrefix();
 changeLanguage();
 
 </script>
