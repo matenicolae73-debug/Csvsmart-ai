@@ -4,88 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0BR73BQW5">
-/* FIX TRADUCERI - CVSmart AI */
-const extraTranslations={
-ro:{
-ph:{name:"Ex: Ion Popescu",email:"Ex: ion@email.com",phone:"712 345 678",location:"Ex: Roma, Italia",job:"Ex: Electrician",experience:"Scrie unde ai lucrat și ce responsabilități ai avut...",education:"Ex: Liceu / Universitate...",skills:"Ex: permis categoria B, lucru în echipă...",languages:"Ex: Italiană - avansat, Engleză - mediu"},
-countries:["Italia","Germania","Spania","Franța","Țările de Jos","Belgia","Austria","Portugalia","Elveția","Regatul Unit"],jobFirst:"Introdu mai întâi jobul dorit."
-},
-it:{
-ph:{name:"Es: Mario Rossi",email:"Es: mario@email.com",phone:"333 123 4567",location:"Es: Roma, Italia",job:"Es: Elettricista",experience:"Scrivi dove hai lavorato e quali responsabilità avevi...",education:"Es: Scuola superiore / Università...",skills:"Es: patente B, lavoro di squadra...",languages:"Es: Italiano - avanzato, Inglese - intermedio"},
-countries:["Italia","Germania","Spagna","Francia","Paesi Bassi","Belgio","Austria","Portogallo","Svizzera","Regno Unito"],jobFirst:"Inserisci prima il lavoro desiderato."
-},
-en:{
-ph:{name:"Ex: John Smith",email:"Ex: john@email.com",phone:"712 345 678",location:"Ex: Rome, Italy",job:"Ex: Electrician",experience:"Write where you worked and your main responsibilities...",education:"Ex: High school / University...",skills:"Ex: driving licence, teamwork...",languages:"Ex: Italian - advanced, English - intermediate"},
-countries:["Italy","Germany","Spain","France","Netherlands","Belgium","Austria","Portugal","Switzerland","United Kingdom"],jobFirst:"Enter your desired job first."
-},
-es:{
-ph:{name:"Ej: Juan García",email:"Ej: juan@email.com",phone:"612 345 678",location:"Ej: Madrid, España",job:"Ej: Electricista",experience:"Escribe dónde has trabajado y tus principales responsabilidades...",education:"Ej: Bachillerato / Universidad...",skills:"Ej: carnet de conducir, trabajo en equipo...",languages:"Ej: Italiano - avanzado, Inglés - intermedio"},
-countries:["Italia","Alemania","España","Francia","Países Bajos","Bélgica","Austria","Portugal","Suiza","Reino Unido"],jobFirst:"Introduce primero el trabajo deseado."
-},
-de:{
-ph:{name:"Z. B.: Max Mustermann",email:"Z. B.: max@email.com",phone:"712 345 678",location:"Z. B.: Berlin, Deutschland",job:"Z. B.: Elektriker",experience:"Beschreibe, wo du gearbeitet hast und welche Aufgaben du hattest...",education:"Z. B.: Schule / Universität...",skills:"Z. B.: Führerschein, Teamarbeit...",languages:"Z. B.: Italienisch - fortgeschritten, Englisch - mittel"},
-countries:["Italien","Deutschland","Spanien","Frankreich","Niederlande","Belgien","Österreich","Portugal","Schweiz","Vereinigtes Königreich"],jobFirst:"Gib zuerst deinen gewünschten Beruf ein."
-}
-};
-
-const oldChangeLanguage=changeLanguage;
-changeLanguage=function(){
- oldChangeLanguage();
- const lang=document.getElementById("language").value;
- const x=extraTranslations[lang]||extraTranslations.en;
-
- Object.keys(x.ph).forEach(id=>{
-   const el=document.getElementById(id);
-   if(el) el.placeholder=x.ph[id];
- });
-
- const values=["Italy","Germany","Spain","France","Netherlands","Belgium","Austria","Portugal","Switzerland","United Kingdom"];
- const flags=["🇮🇹","🇩🇪","🇪🇸","🇫🇷","🇳🇱","🇧🇪","🇦🇹","🇵🇹","🇨🇭","🇬🇧"];
- const jc=document.getElementById("jobCountry");
- const selected=jc.value;
- jc.innerHTML=values.map((v,i)=>`<option value="${v}">${flags[i]} ${x.countries[i]}</option>`).join("");
- jc.value=values.includes(selected)?selected:"Italy";
-};
-
-function findJobs(){
- const job=getValue("job"),location=getValue("location"),skills=getValue("skills");
- const lang=document.getElementById("language").value;
- const x=extraTranslations[lang]||extraTranslations.en;
- const country=document.getElementById("jobCountry").value;
- const countryText=document.getElementById("jobCountry").selectedOptions[0].textContent.replace(/^[^\s]+\s/,"");
-
- if(!job){alert(x.jobFirst);return;}
-
- const texts={
- ro:["⭐ Profil potrivit pentru căutarea ta","Țară","Locație","🔎 Caută joburi pe Google Jobs","Caută automat poziții pentru","Vezi joburile","Vezi oportunități profesionale pentru profilul tău.","🤖 Următorul nivel:"],
- it:["⭐ Profilo adatto alla tua ricerca","Paese","Località","🔎 Cerca offerte su Google Jobs","Cerca automaticamente posizioni per","Vedi offerte di lavoro","Scopri opportunità professionali adatte al tuo profilo.","🤖 Prossimo livello:"],
- en:["⭐ Profile matched to your search","Country","Location","🔎 Search jobs on Google Jobs","Automatically search positions for","View jobs","See professional opportunities for your profile.","🤖 Next level:"],
- es:["⭐ Perfil adecuado para tu búsqueda","País","Ubicación","🔎 Buscar empleos en Google Jobs","Busca automáticamente puestos para","Ver empleos","Consulta oportunidades profesionales para tu perfil.","🤖 Próximo nivel:"],
- de:["⭐ Profil passt zu deiner Suche","Land","Ort","🔎 Jobs auf Google Jobs suchen","Suche automatisch nach Stellen für","Jobs ansehen","Sieh dir passende berufliche Möglichkeiten für dein Profil an.","🤖 Nächste Stufe:"]
- }[lang]||null;
- const t=texts||["⭐ Profile matched to your search","Country","Location","🔎 Search jobs on Google Jobs","Automatically search positions for","View jobs","See professional opportunities for your profile.","🤖 Next level:"];
-
- const q=encodeURIComponent(job+" "+country+" "+location+" "+skills);
- const google="https://www.google.com/search?q="+q+"+jobs";
- const indeed="https://www.indeed.com/jobs?q="+encodeURIComponent(job)+"&l="+encodeURIComponent(country);
- const linkedin="https://www.linkedin.com/jobs/search/?keywords="+encodeURIComponent(job)+"&location="+encodeURIComponent(country);
-
- document.getElementById("jobsResults").innerHTML=`
- <div class="job-card"><h3>🎯 ${job}</h3><div class="match">${t[0]}</div>
- <p>${t[1]}: <strong>${countryText}</strong></p><p>${t[2]}: <strong>${location||"Europe"}</strong></p>
- <a class="job-link" href="${google}" target="_blank" rel="noopener">${t[3]}</a></div>
- <div class="job-card"><h3>💼 Indeed</h3><p>${t[4]} <strong>${job}</strong> in ${countryText}.</p>
- <a class="job-link" href="${indeed}" target="_blank" rel="noopener">${t[5]}</a></div>
- <div class="job-card"><h3>💼 LinkedIn Jobs</h3><p>${t[6]}</p>
- <a class="job-link" href="${linkedin}" target="_blank" rel="noopener">${t[5]}</a></div>
- <div class="info-box"><strong>${t[7]}</strong><p>${lang==="ro"?"În versiunea următoare putem conecta un API securizat pentru analizarea automată a ofertelor și potrivirea lor cu CV-ul.":lang==="it"?"Nella prossima versione possiamo collegare un'API sicura per analizzare automaticamente le offerte e abbinarle al CV.":lang==="es"?"En la próxima versión podemos conectar una API segura para analizar automáticamente las ofertas y compararlas con el CV.":lang==="de"?"In der nächsten Version können wir eine sichere API verbinden, um Stellen automatisch zu analysieren und mit dem Lebenslauf abzugleichen.":"In the next version, we can connect a secure API to automatically analyze jobs and match them with the CV."}</p></div>`;
- document.getElementById("jobsResults").scrollIntoView({behavior:"smooth"});
-}
-
-changeLanguage();
-
-</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0BR73BQW5"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
@@ -310,7 +229,6 @@ header,#formCard,.payment,.letter-btn,.pdf-btn,.jobs-btn,.small{display:none!imp
 
 <button class="payment-btn" onclick="payment()" id="paymentButton">🔒 Continuă la plată</button>
 <p class="small" id="secureText">Plata este procesată securizat prin Stripe.</p>
-<p class="small" id="currencyNote">Prețul este afișat în moneda aleasă. Plata Stripe este momentan disponibilă în EUR.</p>
 </div>
 
 </div>
@@ -396,22 +314,26 @@ jobCountry:"Land, in dem du arbeiten möchtest",jobsButton:"🔎 Passende Jobs f
 }
 };
 
+const uiTranslations={
+ro:{placeholders:{name:"Ex: Ion Popescu",email:"Ex: ion@email.com",phone:"712 345 678",location:"Ex: Roma, Italia",job:"Ex: Electrician",experience:"Scrie unde ai lucrat și ce responsabilități ai avut...",education:"Ex: Liceu / Universitate...",skills:"Ex: permis categoria B, lucru în echipă...",languages:"Ex: Italiană - avansat, Engleză - mediu"},countries:["Italia","Germania","Spania","Franța","Țările de Jos","Belgia","Austria","Portugalia","Elveția","Regatul Unit"],first:"Introdu mai întâi jobul dorit."},
+it:{placeholders:{name:"Es: Mario Rossi",email:"Es: mario@email.com",phone:"333 123 4567",location:"Es: Roma, Italia",job:"Es: Elettricista",experience:"Scrivi dove hai lavorato e quali responsabilità avevi...",education:"Es: Scuola superiore / Università...",skills:"Es: patente B, lavoro di squadra...",languages:"Es: Italiano - avanzato, Inglese - intermedio"},countries:["Italia","Germania","Spagna","Francia","Paesi Bassi","Belgio","Austria","Portogallo","Svizzera","Regno Unito"],first:"Inserisci prima il lavoro desiderato."},
+en:{placeholders:{name:"Ex: John Smith",email:"Ex: john@email.com",phone:"712 345 678",location:"Ex: Rome, Italy",job:"Ex: Electrician",experience:"Write where you worked and your main responsibilities...",education:"Ex: High school / University...",skills:"Ex: driving licence, teamwork...",languages:"Ex: Italian - advanced, English - intermediate"},countries:["Italy","Germany","Spain","France","Netherlands","Belgium","Austria","Portugal","Switzerland","United Kingdom"],first:"Enter your desired job first."},
+es:{placeholders:{name:"Ej: Juan García",email:"Ej: juan@email.com",phone:"612 345 678",location:"Ej: Madrid, España",job:"Ej: Electricista",experience:"Escribe dónde has trabajado y tus principales responsabilidades...",education:"Ej: Bachillerato / Universidad...",skills:"Ej: carnet de conducir, trabajo en equipo...",languages:"Ej: Italiano - avanzado, Inglés - intermedio"},countries:["Italia","Alemania","España","Francia","Países Bajos","Bélgica","Austria","Portugal","Suiza","Reino Unido"],first:"Introduce primero el trabajo deseado."},
+de:{placeholders:{name:"Z. B.: Max Mustermann",email:"Z. B.: max@email.com",phone:"712 345 678",location:"Z. B.: Berlin, Deutschland",job:"Z. B.: Elektriker",experience:"Beschreibe, wo du gearbeitet hast und welche Aufgaben du hattest...",education:"Z. B.: Schule / Universität...",skills:"Z. B.: Führerschein, Teamarbeit...",languages:"Z. B.: Italienisch - fortgeschritten, Englisch - mittel"},countries:["Italien","Deutschland","Spanien","Frankreich","Niederlande","Belgien","Österreich","Portugal","Schweiz","Vereinigtes Königreich"],first:"Gib zuerst deinen gewünschten Beruf ein."}
+};
+const phoneCountries=[["+40","🇷🇴",["România","Romania","Romania","Rumanía","Rumänien"]],["+39","🇮🇹",["Italia","Italia","Italy","Italia","Italien"]],["+34","🇪🇸",["Spania","Spagna","Spain","España","Spanien"]],["+49","🇩🇪",["Germania","Germania","Germany","Alemania","Deutschland"]],["+44","🇬🇧",["Regatul Unit","Regno Unito","United Kingdom","Reino Unido","Vereinigtes Königreich"]],["+33","🇫🇷",["Franța","Francia","France","Francia","Frankreich"]],["+43","🇦🇹",["Austria","Austria","Austria","Austria","Österreich"]],["+32","🇧🇪",["Belgia","Belgio","Belgium","Bélgica","Belgien"]],["+31","🇳🇱",["Țările de Jos","Paesi Bassi","Netherlands","Países Bajos","Niederlande"]],["+351","🇵🇹",["Portugalia","Portogallo","Portugal","Portugal","Portugal"]],["+41","🇨🇭",["Elveția","Svizzera","Switzerland","Suiza","Schweiz"]],["+1","🇺🇸",["SUA / Canada","USA / Canada","USA / Canada","EE. UU. / Canadá","USA / Kanada"]]];
 function getValue(id){return document.getElementById(id).value.trim();}
 
 function changeLanguage(){
-const lang=document.getElementById("language").value,t=translations[lang];
+const lang=document.getElementById("language").value,t=translations[lang]||translations.en,u=uiTranslations[lang]||uiTranslations.en;
 document.documentElement.lang=lang;
-const ids={
-badge:"badge",heroTitle:"heroTitle",heroText:"heroText",formTitle:"formTitle",formDescription:"formDescription",
-name:"nameLabel",email:"emailLabel",phone:"phoneLabel",location:"locationLabel",job:"jobLabel",
-experience:"experienceLabel",education:"educationLabel",skills:"skillsLabel",languages:"languagesLabel",
-generate:"generateButton",previewText:"previewText",preview:"previewTitle",experienceTitle:"experienceTitle",
-educationTitle:"educationTitle",skillsTitle:"skillsTitle",languagesTitle:"languagesTitle",pdf:"pdfButton",
-letterButton:"letterButton",paymentTitle:"paymentTitle",paymentText:"paymentText",pay:"paymentButton",
-secure:"secureText",jobsTitle:"jobsTitle",jobsText:"jobsText",jobCountry:"jobCountryLabel",jobsButton:"jobsButton",
-currency:"currencyLabel",currencyNote:"currencyNote"
-};
-Object.keys(ids).forEach(k=>{document.getElementById(ids[k]).textContent=t[k];});
+const ids={badge:"badge",heroTitle:"heroTitle",heroText:"heroText",formTitle:"formTitle",formDescription:"formDescription",name:"nameLabel",email:"emailLabel",phone:"phoneLabel",location:"locationLabel",job:"jobLabel",experience:"experienceLabel",education:"educationLabel",skills:"skillsLabel",languages:"languagesLabel",generate:"generateButton",previewText:"previewText",preview:"previewTitle",experienceTitle:"experienceTitle",educationTitle:"educationTitle",skillsTitle:"skillsTitle",languagesTitle:"languagesTitle",pdf:"pdfButton",letterButton:"letterButton",paymentTitle:"paymentTitle",paymentText:"paymentText",pay:"paymentButton",secure:"secureText",jobsTitle:"jobsTitle",jobsText:"jobsText",jobCountry:"jobCountryLabel",jobsButton:"jobsButton",currency:"currencyLabel"};
+Object.keys(ids).forEach(k=>{const el=document.getElementById(ids[k]);if(el&&t[k]!==undefined)el.textContent=t[k];});
+Object.keys(u.placeholders).forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=u.placeholders[id];});
+const country=document.getElementById("country");
+if(country){const old=country.value,idx={ro:0,it:1,en:2,es:3,de:4}[lang]??2;country.innerHTML=phoneCountries.map(c=>`<option value="${c[0]}">${c[1]} ${c[2][idx]} (${c[0]})</option>`).join("");country.value=phoneCountries.some(c=>c[0]===old)?old:"+40";}
+const jc=document.getElementById("jobCountry");
+if(jc){const old=jc.value,vals=["Italy","Germany","Spain","France","Netherlands","Belgium","Austria","Portugal","Switzerland","United Kingdom"],fl=["🇮🇹","🇩🇪","🇪🇸","🇫🇷","🇳🇱","🇧🇪","🇦🇹","🇵🇹","🇨🇭","🇬🇧"];jc.innerHTML=vals.map((v,i)=>`<option value="${v}">${fl[i]} ${u.countries[i]}</option>`).join("");jc.value=vals.includes(old)?old:"Italy";}
 updatePrice();
 }
 
