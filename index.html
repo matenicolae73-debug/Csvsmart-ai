@@ -529,5 +529,90 @@ updatePrice();
 
 changeLanguage();
 </script>
+<script>
+/* CVSmart AI — traducere completă a tuturor elementelor vizibile */
+(function(){
+const extra={
+ro:{
+ currencyNames:{EUR:'Euro',RON:'Lei',USD:'Dolar',GBP:'Liră sterlină',CHF:'Franc elvețian',CAD:'Dolar canadian',AUD:'Dolar australian',PLN:'Zlot',SEK:'Coroană',NOK:'Coroană',DKK:'Coroană',CZK:'Coroană',HUF:'Forint'},
+ jobs:{match:'⭐ Profil potrivit pentru căutarea ta',country:'Țară:',location:'Locație:',google:'🔎 Caută joburi pe Google Jobs',indeed:'Caută automat poziții pentru',in:'în',linkedin:'Vezi oportunități profesionale pentru profilul tău.',view:'Vezi joburile',next:'🤖 Următorul nivel:',nextText:'În versiunea următoare putem conecta un API securizat pentru ca CVSmart AI să analizeze automat fiecare ofertă, să calculeze potrivirea cu CV-ul și să genereze o candidatură personalizată.'}
+},
+it:{
+ currencyNames:{EUR:'Euro',RON:'Lei',USD:'Dollaro',GBP:'Sterlina',CHF:'Franco svizzero',CAD:'Dollaro canadese',AUD:'Dollaro australiano',PLN:'Zloty',SEK:'Corona',NOK:'Corona',DKK:'Corona',CZK:'Corona',HUF:'Fiorino'},
+ jobs:{match:'⭐ Profilo adatto alla tua ricerca',country:'Paese:',location:'Posizione:',google:'🔎 Cerca lavori su Google Jobs',indeed:'Trova automaticamente offerte di lavoro per',in:'in',linkedin:'Scopri opportunità professionali in base al tuo profilo.',view:'Visualizza lavori',next:'🤖 Prossimo passo:',nextText:'Nella prossima versione possiamo collegare un’API sicura per permettere a CVSmart AI di analizzare automaticamente ogni offerta, calcolare la compatibilità con il tuo CV e generare una candidatura personalizzata.'}
+},
+en:{
+ currencyNames:{EUR:'Euro',RON:'Leu',USD:'Dollar',GBP:'Pound',CHF:'Swiss franc',CAD:'Canadian dollar',AUD:'Australian dollar',PLN:'Zloty',SEK:'Krona',NOK:'Krone',DKK:'Krone',CZK:'Koruna',HUF:'Forint'},
+ jobs:{match:'⭐ Profile matches your search',country:'Country:',location:'Location:',google:'🔎 Find jobs on Google Jobs',indeed:'Automatically find job openings for',in:'in',linkedin:'See professional opportunities matching your profile.',view:'View jobs',next:'🤖 Next level:',nextText:'In the next version, we can connect a secure API so CVSmart AI can automatically analyze each offer, calculate the match with your CV and generate a personalized application.'}
+},
+es:{
+ currencyNames:{EUR:'Euro',RON:'Leu',USD:'Dólar',GBP:'Libra esterlina',CHF:'Franco suizo',CAD:'Dólar canadiense',AUD:'Dólar australiano',PLN:'Zloty',SEK:'Corona',NOK:'Corona',DKK:'Corona',CZK:'Corona',HUF:'Forinto'},
+ jobs:{match:'⭐ Perfil adecuado para tu búsqueda',country:'País:',location:'Ubicación:',google:'🔎 Buscar trabajos en Google Jobs',indeed:'Busca automáticamente ofertas de trabajo para',in:'en',linkedin:'Descubre oportunidades profesionales según tu perfil.',view:'Ver trabajos',next:'🤖 Próximo nivel:',nextText:'En la próxima versión podemos conectar una API segura para que CVSmart AI analice automáticamente cada oferta, calcule la compatibilidad con tu CV y genere una candidatura personalizada.'}
+},
+de:{
+ currencyNames:{EUR:'Euro',RON:'Leu',USD:'Dollar',GBP:'Britisches Pfund',CHF:'Schweizer Franken',CAD:'Kanadischer Dollar',AUD:'Australischer Dollar',PLN:'Zloty',SEK:'Krone',NOK:'Krone',DKK:'Krone',CZK:'Koruna',HUF:'Forint'},
+ jobs:{match:'⭐ Profil passt zu deiner Suche',country:'Land:',location:'Standort:',google:'🔎 Jobs auf Google Jobs finden',indeed:'Finde automatisch Stellenangebote für',in:'in',linkedin:'Sieh dir berufliche Möglichkeiten an, die zu deinem Profil passen.',view:'Stellen anzeigen',next:'🤖 Nächster Schritt:',nextText:'In der nächsten Version können wir eine sichere API verbinden, damit CVSmart AI jedes Angebot automatisch analysiert, die Übereinstimmung mit deinem Lebenslauf berechnet und eine personalisierte Bewerbung erstellt.'}
+}
+};
+const currencyFlags={EUR:'🇪🇺',RON:'🇷🇴',USD:'🇺🇸',GBP:'🇬🇧',CHF:'🇨🇭',CAD:'🇨🇦',AUD:'🇦🇺',PLN:'🇵🇱',SEK:'🇸🇪',NOK:'🇳🇴',DKK:'🇩🇰',CZK:'🇨🇿',HUF:'🇭🇺'};
+const currencyValues=['EUR','RON','USD','GBP','CHF','CAD','AUD','PLN','SEK','NOK','DKK','CZK','HUF'];
+const jobValues=['Italy','Germany','Spain','France','Netherlands','Belgium','Austria','Portugal','Switzerland','United Kingdom'];
+const jobFlags=['🇮🇹','🇩🇪','🇪🇸','🇫🇷','🇳🇱','🇧🇪','🇦🇹','🇵🇹','🇨🇭','🇬🇧'];
+
+window.changeLanguage=function(){
+ const lang=(document.getElementById('language')||{}).value||'en';
+ const t=translations[lang]||translations.en;
+ const u=uiTranslations[lang]||uiTranslations.en;
+ document.documentElement.lang=lang;
+ const ids={badge:'badge',heroTitle:'heroTitle',heroText:'heroText',formTitle:'formTitle',formDescription:'formDescription',name:'nameLabel',email:'emailLabel',phone:'phoneLabel',location:'locationLabel',job:'jobLabel',experience:'experienceLabel',education:'educationLabel',skills:'skillsLabel',languages:'languagesLabel',generate:'generateButton',previewText:'previewText',preview:'previewTitle',experienceTitle:'experienceTitle',educationTitle:'educationTitle',skillsTitle:'skillsTitle',languagesTitle:'languagesTitle',pdf:'pdfButton',letterButton:'letterButton',paymentTitle:'paymentTitle',paymentText:'paymentText',pay:'paymentButton',secure:'secureText',jobsTitle:'jobsTitle',jobsText:'jobsText',jobCountry:'jobCountryLabel',jobsButton:'jobsButton',currency:'currencyLabel'};
+ Object.keys(ids).forEach(k=>{const el=document.getElementById(ids[k]);if(el&&t[k]!==undefined)el.textContent=t[k];});
+ Object.keys(u.placeholders||{}).forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=u.placeholders[id];});
+ const country=document.getElementById('country');
+ if(country && typeof phoneCountries!=='undefined'){
+   const old=country.value; const idx={ro:0,it:1,en:2,es:3,de:4}[lang]??2;
+   country.innerHTML=phoneCountries.map(c=>`<option value="${c[0]}">${c[1]} ${c[2][idx]} (${c[0]})</option>`).join('');
+   country.value=phoneCountries.some(c=>c[0]===old)?old:'+40';
+ }
+ const jc=document.getElementById('jobCountry');
+ if(jc){
+   const old=jc.value; jc.innerHTML=jobValues.map((v,i)=>`<option value="${v}">${jobFlags[i]} ${u.countries[i]}</option>`).join('');
+   jc.value=jobValues.includes(old)?old:'Italy';
+ }
+ const cur=document.getElementById('currency');
+ if(cur){
+   const old=cur.value||'EUR', names=(extra[lang]||extra.en).currencyNames;
+   cur.innerHTML=currencyValues.map(v=>`<option value="${v}">${currencyFlags[v]} ${v} – ${names[v]}</option>`).join('');
+   cur.value=currencyValues.includes(old)?old:'EUR';
+ }
+ if(typeof updatePrice==='function') updatePrice();
+};
+
+window.findJobs=function(){
+ const job=(document.getElementById('job')?.value||'').trim();
+ const location=(document.getElementById('location')?.value||'').trim();
+ const skills=(document.getElementById('skills')?.value||'').trim();
+ const country=document.getElementById('jobCountry')?.value||'Italy';
+ const lang=document.getElementById('language')?.value||'en';
+ const t=translations[lang]||translations.en, e=extra[lang]||extra.en, j=e.jobs;
+ if(!job){alert(t.required);return;}
+ const query=encodeURIComponent(job+' '+country+' '+location+' '+skills);
+ const googleJobs='https://www.google.com/search?q='+query+'+jobs';
+ const indeed='https://www.indeed.com/jobs?q='+encodeURIComponent(job)+'&l='+encodeURIComponent(country);
+ const linkedin='https://www.linkedin.com/jobs/search/?keywords='+encodeURIComponent(job)+'&location='+encodeURIComponent(country);
+ document.getElementById('jobsResults').innerHTML=`
+ <div class="job-card"><h3>🎯 ${job}</h3><div class="match">${j.match}</div>
+ <p>${j.country} <strong>${country}</strong></p><p>${j.location} <strong>${location||'Europe'}</strong></p>
+ <a class="job-link" href="${googleJobs}" target="_blank" rel="noopener">${j.google}</a></div>
+ <div class="job-card"><h3>💼 Indeed</h3><p>${j.indeed} <strong>${job}</strong> ${j.in} ${country}.</p>
+ <a class="job-link" href="${indeed}" target="_blank" rel="noopener">${j.view}</a></div>
+ <div class="job-card"><h3>💼 LinkedIn Jobs</h3><p>${j.linkedin}</p>
+ <a class="job-link" href="${linkedin}" target="_blank" rel="noopener">${j.view}</a></div>
+ <div class="info-box"><strong>${j.next}</strong><p>${j.nextText}</p></div>`;
+ document.getElementById('jobsResults').scrollIntoView({behavior:'smooth'});
+};
+
+window.addEventListener('DOMContentLoaded',()=>window.changeLanguage());
+})();
+</script>
 </body>
 </html>
